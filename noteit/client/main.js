@@ -1,22 +1,16 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import SimpleMDE from 'simplemde';
+import {} from 'simplemde/src/css/simplemde.css';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+Template.editor.onRendered(function helloOnCreated() {
+  new SimpleMDE({element: document.getElementById("textarea")});
+}); 
+
+Template.editor.helpers({
+  notes: [
+    ],
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});

@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.51",
+    "@types/simplemde": "^1.11.7",
     "babel-runtime": "^6.26.0",
-    "meteor-node-stubs": "^0.4.1"
+    "meteor-node-stubs": "^0.4.1",
+    "simplemde": "^1.11.2"
   },
   "meteor": {
     "mainModule": {
