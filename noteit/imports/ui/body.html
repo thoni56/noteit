@@ -1,0 +1,23 @@
+<body>
+  <h1>Welcome to NoteIt!</h1>
+  
+  <h3>Your notes:</h3>
+  <ul>
+    {{#each notes}}
+      {{> note}}
+    {{/each}}
+  </ul>
+
+  <h3>Edit:</h3>
+    {{> editor}}
+
+</body>
+
+<template name="editor">
+  <textarea rows="1" cols="76" id="titlearea"></textarea>
+  <textarea rows="4" cols="40" id="editorarea"></textarea>
+</template>
+
+<template name="note">
+  <li>{{title}}</li>
+</template>
