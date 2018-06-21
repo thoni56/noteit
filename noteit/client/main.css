@@ -43,6 +43,15 @@ h1 {
   margin-right: 1em;
 }
 
+h3 {
+  padding: 15px;
+}
+
+textarea {
+  margin: 10px;
+  width: 95%;
+}
+
 form {
   margin-top: 10px;
   margin-bottom: -10px;
