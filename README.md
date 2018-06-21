@@ -1,18 +1,10 @@
+# NOTEIT
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+NoteIt is a rip-off from the revolutionary note-taking app for MacOS, Notae,
+which no longer works.
 
+The thing about NoteIt (and Notae) is that each note can be tagged with multiple
+tags and that filtering of notes can be performed hierarchically, does making
+it possible to dig down into the emergent relationships of your notes.
 
-Hi there! Welcome to Cloud9 IDE!
-
-To get you started, create some files, play with the terminal,
-or visit http://docs.c9.io for our documentation.
-If you want, you can also go watch some training videos at
-http://www.youtube.com/user/c9ide.
-
-Happy coding!
-The Cloud9 IDE team
+This is really in its infancy. Let's see what happens!
