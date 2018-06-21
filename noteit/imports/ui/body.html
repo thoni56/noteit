@@ -2,23 +2,27 @@
     <div class="container">
         <header>
           <h1>Welcome to NoteIt!</h1>
+          <form class="new-note">
+          <input type="note" name="text" placeholder="Type title to add new note" />
+
+      </form>
         </header>
   
         <h3>Your notes:</h3>
-          <ul>
-            {{#each notes}}
-              {{> note}}
-            {{/each}}
-          </ul>
+        <ul>
+          {{#each notes}}
+            {{> note}}
+          {{/each}}
+        </ul>
 
         <h3>Edit:</h3>
-          {{> editor}}
+        {{> editor}}
     </div>
 
 </body>
 
 <template name="editor">
-  <textarea rows="1" cols="40" width="100%" id="title"></textarea>
+  <textarea rows="1" cols="40" id="title"></textarea>
   <textarea rows="4" cols="40" id="editor"></textarea>
 </template>
 
