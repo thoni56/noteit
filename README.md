@@ -7,4 +7,9 @@ The thing about NoteIt (and Notae) is that each note can be tagged with multiple
 tags and that filtering of notes can be performed hierarchically, does making
 it possible to dig down into the emergent relationships of your notes.
 
+It is a meteor project, and as such you run it by
+
+    > cd noteit
+    > meteor --port $IP:$PORT
+
 This is really in its infancy. Let's see what happens!
