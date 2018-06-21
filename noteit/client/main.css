@@ -72,6 +72,10 @@ form {
   outline: 0;
 }
 
+.new-note button {
+  float: right;
+}
+
 ul {
   margin: 0;
   padding: 0;

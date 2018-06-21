@@ -1,8 +1,10 @@
 import { Template } from 'meteor/templating';
 import { Notes } from '../api/notes.js';
+import { editor } from '../../client/main.js';
 
 import './note.js';
 import './body.html';
+
 
 Template.body.helpers({
     notes() {
@@ -25,7 +27,10 @@ Template.body.events({
             createdAt: new Date(),
         });
         
+        editor.value(text);
+        
         // Clear form
         target.text.value = '';
     },
-})
+});
+

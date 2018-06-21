@@ -3,7 +3,8 @@
         <header>
           <h1>Welcome to NoteIt!</h1>
           <form class="new-note">
-            <input type="note" name="text" placeholder="Type title to add new note" />
+            <input type="note" name="text" placeholder="Type title, fill out content and press Save" />
+            <button name="save" value="send" type="submit">Save</button>
           </form>
         </header>
   
@@ -20,6 +21,5 @@
 </body>
 
 <template name="editor">
-  <textarea rows="1" cols="40" id="title"></textarea>
   <textarea rows="4" cols="40" id="editor"></textarea>
 </template>

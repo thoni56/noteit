@@ -3,6 +3,9 @@ import SimpleMDE from 'simplemde';
 
 import '../imports/ui/body.js';
 
-Template.editor.onRendered(function helloOnCreated() {
-  new SimpleMDE({element: document.getElementById("editor")});
+export let editor;
+
+
+Template.editor.onRendered(function () {
+  editor = new SimpleMDE({element: document.getElementById("editor")});
 });
