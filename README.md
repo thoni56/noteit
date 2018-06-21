@@ -9,7 +9,7 @@ it possible to dig down into the emergent relationships of your notes.
 
 It is a meteor project, and as such you run it by
 
-    > cd noteit
+    > cd noteit # yes, into noteit/noteit
     > meteor --port $IP:$PORT
 
 This is really in its infancy. Let's see what happens!
