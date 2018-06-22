@@ -46,4 +46,20 @@ Template.body.events({
             editor.codemirror.focus();
         }
     },
+
+    'click .add-note'(event) {
+        if (event.detail === 0) {
+            // This was not an actual click, but a click generate by enter in the input field
+            return;
+        }
+
+        event.preventDefault();
+
+        event.target.title.value = '';
+        $('form.edit-title')[0].reset(); // Reset the form
+        editor.currentNote = null;
+        editor.value('');
+    }
+
+
 });

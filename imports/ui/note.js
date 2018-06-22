@@ -9,6 +9,7 @@ Template.note.events({
     },
 
     'click .notetitle'() {
+        // Should load note into editor
         console.log("klick on title\n");
     }
 });
