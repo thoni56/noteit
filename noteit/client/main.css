@@ -47,11 +47,6 @@ h3 {
   padding: 15px;
 }
 
-textarea {
-  margin: 10px;
-  width: 95%;
-}
-
 form {
   margin-top: 10px;
   margin-bottom: -10px;
@@ -60,12 +55,13 @@ form {
 
 .new-note input {
   box-sizing: border-box;
-  padding: 10px 0;
   background: transparent;
   border: none;
   width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
+  padding: 0px 15px 15px 15px;
+  font-family: sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .new-note input:focus{

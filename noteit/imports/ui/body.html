@@ -2,10 +2,6 @@
     <div class="container">
         <header>
           <h1>Welcome to NoteIt!</h1>
-          <form class="new-note">
-            <input type="note" name="text" placeholder="Type title, fill out content and press Save" />
-            <button name="save" value="send" type="submit">Save</button>
-          </form>
         </header>
   
         {{> editor}}
@@ -21,5 +17,8 @@
 </body>
 
 <template name="editor">
+  <form class="new-note">
+    <input type="text" name="title" placeholder="Type title here">
+  </form>
   <textarea rows="4" cols="40" id="editor"></textarea>
 </template>

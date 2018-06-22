@@ -19,18 +19,18 @@ Template.body.events({
         
         // Get value from form element
         const target = event.target;
-        const text = target.text.value;
+        const title = target.title.value;
         
         // Insert the note in the collection
         Notes.insert({
-            title: text,
+            title: title,
             createdAt: new Date(),
         });
         
-        editor.value(text);
+        //editor.value('# '+title);
         
         // Clear form
-        target.text.value = '';
+        target.title.value = '';
     },
 });
 
