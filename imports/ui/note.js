@@ -9,6 +9,6 @@ Template.note.events({
     },
 
     'click .notetitle'() {
-        console.log("klick\n");
+        console.log("klick on title\n");
     }
 });

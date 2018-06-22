@@ -13,7 +13,7 @@ Template.body.helpers({
 });
 
 Template.body.events({
-    'submit .new-note'(event) {
+    'submit .edit-title'(event) {
         function editingExistingNote() {
             return editor.currentNote && Notes.find({_id:editor.currentNote}).count();
         }

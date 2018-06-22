@@ -67,22 +67,24 @@ form {
   position: relative;
 }
 
-.new-note input {
+.edit-title input {
   box-sizing: border-box;
   background: transparent;
   border: none;
-  width: 100%;
+  width: 90%;
   padding: 0px 15px 15px 15px;
   font-family: sans-serif;
   font-size: 1.5em;
   font-weight: bold;
 }
 
-.new-note input:focus{
+.edit-title input:focus{
   outline: 0;
 }
 
-.new-note button {
+.edit-title button {
+  font-size: 1.5em;
+  color: lightgreen;
   float: right;
 }
 
@@ -92,7 +94,7 @@ ul {
   background: white;
 }
 
-.delete {
+.operation {
   float: right;
   font-weight: bold;
   background: none;
