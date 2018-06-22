@@ -21,11 +21,19 @@ Template.body.events({
         const target = event.target;
         const title = target.title.value;
         
-        // Insert the note in the collection
-        Notes.insert({
-            title: title,
-            createdAt: new Date(),
-        });
+        if (!editor.currentNote) {
+            // Insert the note in the collection
+            editor.currentNote = Notes.insert({
+                title: title,
+                createdAt: new Date(),
+            });
+        } else {
+            Notes.update(editor.currentNote, {
+                $set: { title: title,
+                        content: editor.value()
+                },
+            });
+        }
 
         //editor.value('# '+title);
         editor.codemirror.focus();
