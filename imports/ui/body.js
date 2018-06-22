@@ -13,10 +13,11 @@ Template.body.helpers({
 });
 
 Template.body.events({
-'submit .new-note'(event) {
-    function editingExistingNote() {
-        return editor.currentNote && Notes.find({_id:editor.currentNote}).count();
-    }
+    'submit .new-note'(event) {
+        function editingExistingNote() {
+            return editor.currentNote && Notes.find({_id:editor.currentNote}).count();
+        }
+        
         // Prevent default browser submit
         event.preventDefault();
         
@@ -24,7 +25,6 @@ Template.body.events({
         const target = event.target;
         const title = target.title.value;
         
-        console.log(editingExistingNote());
         if (!editingExistingNote()) {
             // Insert the note in the collection
             editor.currentNote = Notes.insert({
