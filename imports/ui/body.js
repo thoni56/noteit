@@ -17,7 +17,11 @@ Template.body.events({
         function editingExistingNote() {
             return editor.currentNote && Notes.find({_id:editor.currentNote}).count();
         }
-        
+
+        function editorEmpty(title) {
+            return title.length == 0 && editor.value().length == 0; 
+        }
+
         // Prevent default browser submit
         event.preventDefault();
         
@@ -25,24 +29,21 @@ Template.body.events({
         const target = event.target;
         const title = target.title.value;
         
-        if (!editingExistingNote()) {
-            // Insert the note in the collection
-            editor.currentNote = Notes.insert({
-                title: title,
-                createdAt: new Date(),
-            });
-        } else {
-            Notes.update(editor.currentNote, {
-                $set: { title: title,
-                        content: editor.value()
-                },
-            });
+        if (!editorEmpty(title)) {
+            if (!editingExistingNote()) {
+                // Insert the note in the collection
+                editor.currentNote = Notes.insert({
+                    title: title,
+                    createdAt: new Date(),
+                });
+            } else {
+                Notes.update(editor.currentNote, {
+                    $set: { title: title,
+                            content: editor.value()
+                    },
+                });
+            }
+            editor.codemirror.focus();
         }
-
-    //editor.value('# '+title);
-        editor.codemirror.focus();
-        
-        // Clear form
-        //target.title.value = '';
     },
 });
