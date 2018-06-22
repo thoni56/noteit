@@ -1,17 +1,20 @@
 <body>
     <div class="container">
-        <header>
-          <h1>Welcome to NoteIt!</h1>
-        </header>
-  
+      <header>
+        <h1>Welcome to NoteIt!</h1>
+      </header>
+        
+      <div class="editor">
         {{> editor}}
-
-        <h3>Your notes:</h3>
+      </div>
+        
+      <div class="notelist">
         <ul>
           {{#each notes}}
             {{> note}}
-          {{/each}}
+         {{/each}}
         </ul>
+      </div>
     </div>
 
 </body>

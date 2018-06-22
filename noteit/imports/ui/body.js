@@ -26,11 +26,12 @@ Template.body.events({
             title: title,
             createdAt: new Date(),
         });
-        
+
         //editor.value('# '+title);
+        editor.codemirror.focus();
         
         // Clear form
-        target.title.value = '';
+        //target.title.value = '';
     },
 });
 
