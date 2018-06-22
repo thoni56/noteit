@@ -27,7 +27,7 @@ Template.body.events({
         
         // Get value from form element
         const target = event.target;
-        const title = target.title.value;
+        const title = target.title.value.trim();
         
         if (!editorEmpty(title)) {
             if (!editingExistingNote()) {
