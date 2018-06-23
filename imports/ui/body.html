@@ -1,15 +1,16 @@
 <body>
     <div class="container">
-      <header>
+      <header class="col-xs-12">
         <h1>Welcome to NoteIt!</h1>
       </header>
         
-      <div class="editor">
+      <div class="editor col-xs-6">
         {{> editor}}
       </div>
         
-      <div class="notelist">
-        <ul>
+      <div class="notelist col-xs-6">
+        <p style="font-size:1.1em; font-weight: bold;">Notes:</p>
+        <ul class="list-group">
           {{#each notes}}
             {{> note}}
          {{/each}}
@@ -22,7 +23,7 @@
 <template name="editor">
   <form class="edit-title">
     <button class="operation add-note"><i class="fa fa-plus"></i></button>
-    <input type="text" name="title" placeholder="Title of new note">
+    <input type="text" name="title" placeholder="Type title of new note here">
   </form>
   <textarea rows="4" cols="40" id="editor"></textarea>
 </template>
