@@ -10,7 +10,7 @@ export function load(note_id) {
     save();
     editor.currentNote = note_id;
     var note = Notes.findOne({_id: note_id});
-    document.getElementsByName('title')[0].value = note.title;
+    document.getElementById('note-title').value = note.title;
     if (note.content === null) {
         editor.value("");
     } else {
@@ -19,7 +19,7 @@ export function load(note_id) {
 }
 
 export function save() {
-    const title = document.getElementsByName('title')[0].value.trim();
+    const title = document.getElementById('note-title').value.trim();
  
     if (!editorEmpty(title)) {
         if (!editingExistingNote()) {
@@ -58,7 +58,7 @@ Template.editor.events({
         event.preventDefault();
 
         save();
-        const title = document.getElementsByName('title')[0].value.trim();
+        const title = document.getElementById('note-title').value.trim();
         if (!editorEmpty(title)) {
             editor.codemirror.focus();
         }
