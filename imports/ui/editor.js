@@ -73,9 +73,8 @@ Template.editor.events({
         event.preventDefault();
 
         event.target.title.value = '';
-        $('form.edit-title')[0].reset(); // Reset the form
+        document.getElementById('edit-title-form').reset(); // Reset the form
         editor.currentNote = null;
         editor.value('');
     }
-
 });
