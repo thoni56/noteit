@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Notes } from '../api/notes.js';
+import { editor, load } from '../ui/editor';
 
 import './note.html';
 
@@ -9,7 +10,6 @@ Template.note.events({
     },
 
     'click .notetitle'() {
-        // Should load note into editor
-        console.log("klick on title\n");
+        load(this._id);
     }
 });
