@@ -40,12 +40,13 @@ h1 {
 }
 
 .edit-title input {
-  box-sizing: border-box;
-  background: transparent;
   border: none;
   width: 90%;
-  font-size: 1.5em;
   font-weight: bold;
+}
+
+#note-title {
+  font-size: 1.5em;
 }
 
 .edit-title button {
