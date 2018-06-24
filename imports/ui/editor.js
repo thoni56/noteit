@@ -4,7 +4,7 @@ import { Notes } from '../api/notes';
 
 import './editor.html';
 
-export let editor;
+export var editor;
 
 export function load(note_id) {
     save();
