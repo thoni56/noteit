@@ -9,7 +9,7 @@ Template.note.events({
         Notes.remove(this._id);
     },
 
-    'click .notetitle'() {
+    'click .list-group-item'() {
         load(this._id);
     }
 });
