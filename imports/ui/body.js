@@ -13,10 +13,11 @@ Template.body.helpers({
         return Notes.find({}, { sort: { createdAt: -1}});
     },
     tags() {
+        let t = Tags.find({}, { sort: { name: 1}}); 
         return [
             { _id: 1, name: 'Tag1' },
             { _id: 2, name: 'Tag2' },
             { _id: 3, name: 'Tag3' },
-          ]; //Tags.find({}, { sort: { name: 1}});
+          ];
     },
 });
