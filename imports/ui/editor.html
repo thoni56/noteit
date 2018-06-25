@@ -1,7 +1,13 @@
 <template name="editor">
     <form class="edit-title" id='edit-title-form'>
-        <button class="operation add-note"><i class="fa fa-plus" style="color: lightgreen;"></i></button>
-        <button class="operation delete-note" data-toggle="tooltip" title="Hooray!"><i class="fa fa-remove" style="color:red"></i></button>
+        <button class="operation add-note"
+            data-toggle="tooltip" data-animation="true" title="Add new note">
+            <i class="fa fa-plus" style="color: lightgreen;"></i>
+        </button>
+        <button class="operation delete-note"
+            data-toggle="tooltip" data-animation="true" title="Delete current note">
+            <i class="fa fa-remove" style="color:red;"></i>
+        </button>
         <input type="text" id="note-title" placeholder="Type title of new note here">
         <input type="text" id="note-tags" placeholder="Type tags here">
     </form>
