@@ -1,16 +1,18 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
 import { Notes } from '../api/notes';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import './editor.html';
 
 export var editor;
+export var currentNote = new ReactiveVar(null);
 
 export function load(note_id) {
     save();
-    editor.currentNote = note_id;
+    currentNote = note_id;
     var note = Notes.findOne({_id: note_id});
-    document.getElementById('note-title').value = note.title;
+    titleField().value = note.title;
     if (note.content === null) {
         editor.value("");
     } else {
@@ -21,16 +23,16 @@ export function load(note_id) {
 export function save() {
     const title = document.getElementById('note-title').value.trim();
  
-    if (!editorEmpty(title)) {
+    if (!editorIsEmpty(title)) {
         if (!editingExistingNote()) {
             // Insert the note in the collection
-            editor.currentNote = Notes.insert({
+            currentNote = Notes.insert({
                 title: title,
                 content: editor.value(),
                 createdAt: new Date(),
             });
         } else {
-            Notes.update(editor.currentNote, {
+            Notes.update(currentNote, {
                 $set: { title: title,
                         content: editor.value(),
                         modifiedAt: new Date(),
@@ -38,14 +40,6 @@ export function save() {
             });
         }
     }
-}
-
-function editingExistingNote() {
-    return editor.currentNote && Notes.find({_id:editor.currentNote}).count();
-}
-
-function editorEmpty(title) {
-    return title.length == 0 && editor.value().length == 0; 
 }
 
 Template.editor.onRendered(function () {
@@ -58,8 +52,8 @@ Template.editor.events({
         event.preventDefault();
 
         save();
-        const title = document.getElementById('note-title').value.trim();
-        if (!editorEmpty(title)) {
+        const title = titleField().value.trim();
+        if (!editorIsEmpty(title)) {
             editor.codemirror.focus();
         }
     },
@@ -72,9 +66,32 @@ Template.editor.events({
 
         event.preventDefault();
 
-        event.target.title.value = '';
-        document.getElementById('edit-title-form').reset(); // Reset the form
-        editor.currentNote = null;
-        editor.value('');
+        resetEditor(event.target);
+    },
+
+    'click .delete-note'(event) {
+        Notes.remove(currentNote);
+        resetEditor();
     }
 });
+
+function titleField() {
+    return document.getElementById('note-title');
+}
+
+function editingExistingNote() {
+    return currentNote && Notes.find({_id:currentNote}).count();
+}
+
+function editorIsEmpty(title) {
+    return title.length == 0 && editor.value().length == 0; 
+}
+
+function resetEditor() {
+    titleField().value = '';
+    document.getElementById('edit-title-form').reset(); // Reset the form
+    currentNote = null;
+    editor.value('');
+}
+
+

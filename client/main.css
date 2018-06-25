@@ -41,7 +41,7 @@ h1 {
 
 .edit-title input {
   border: none;
-  width: 90%;
+  width: 85%;
   font-weight: bold;
 }
 
@@ -51,7 +51,6 @@ h1 {
 
 .edit-title button {
   font-size: 1.5em;
-  color: lightgreen;
   float: right;
 }
 
