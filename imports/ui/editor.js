@@ -12,7 +12,7 @@ import './notetag.js';
 export var editor;
 export var currentNote = new ReactiveVar(null);
 
-var tags = new ReactiveArray([ "5b32553d142f9db0057c61f2" ]);
+var tags = new ReactiveArray();
 
 export function load(note_id) {
     save();
@@ -24,6 +24,8 @@ export function load(note_id) {
     } else {
         editor.value(note.content);
     }
+    tags.clear();
+    tags.concat(note.tags);
 }
 
 export function save() {
@@ -69,7 +71,7 @@ Template.editor.events({
         let tagname = tagsField().value.trim();
         let tag = Tags.findOne({name: tagname});
         if (tag) {
-            tags = [ tag._id ];
+            tags.push(tag._id);
             tagsField.value = '';
             event.target.reset();
             Notes.update(currentNote, {
@@ -120,6 +122,7 @@ function resetEditor() {
 
 Template.editor.helpers({
     notetags() {
-        return tags;
+        //return Tags.find({ _id: { $in : tags}});
+        return ["5b32553d142f9db0057c61f2"];
     }, 
 });
