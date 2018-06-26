@@ -25,7 +25,10 @@ export function load(note_id) {
         editor.value(note.content);
     }
     tags.clear();
-    tags.concat(note.tags);
+    if (note.tags) {
+        tags = tags.concat(note.tags);
+    }
+    console.log(Tags.find({ _id: { $in : tags }}).fetch());
 }
 
 export function save() {
@@ -54,6 +57,12 @@ Template.editor.onRendered(function () {
   editor = new SimpleMDE({element: document.getElementById("editor")});
 });
 
+Template.editor.helpers({
+    notetags() {
+        return Tags.find({ _id: { $in : tags }});
+    }, 
+});
+
 Template.editor.events({
     'submit .edit-title'(event) {
         // Prevent default browser submit
@@ -77,7 +86,6 @@ Template.editor.events({
             Notes.update(currentNote, {
                 $set: { tags: tags}
             });
-            console.log(tags);
         }
     },
 
@@ -119,10 +127,3 @@ function resetEditor() {
     currentNote = null;
     editor.value('');
 }
-
-Template.editor.helpers({
-    notetags() {
-        //return Tags.find({ _id: { $in : tags}});
-        return ["5b32553d142f9db0057c61f2"];
-    }, 
-});
