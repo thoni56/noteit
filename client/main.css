@@ -39,10 +39,14 @@ h1 {
   margin-right: 1em;
 }
 
-.edit-title input {
+form input {
   border: none;
-  width: 85%;
   font-weight: bold;
+  width: 100%;
+}
+
+.edit-title input {
+  width: 85%;
 }
 
 #note-title {

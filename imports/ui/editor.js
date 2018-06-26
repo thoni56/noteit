@@ -1,14 +1,18 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
 import { Notes } from '../api/notes';
+import { Tags } from '../api/tags';
 import { ReactiveVar } from 'meteor/reactive-var';
-
+import { ReactiveArray } from 'meteor/manuel:reactivearray';
+ 
 import './editor.html';
 
 import './notetag.js';
 
 export var editor;
 export var currentNote = new ReactiveVar(null);
+
+var tags = new ReactiveArray([ "5b32553d142f9db0057c61f2" ]);
 
 export function load(note_id) {
     save();
@@ -60,6 +64,21 @@ Template.editor.events({
         }
     },
 
+    'submit .edit-tags'(event) {
+        event.preventDefault();
+        let tagname = tagsField().value.trim();
+        let tag = Tags.findOne({name: tagname});
+        if (tag) {
+            tags = [ tag._id ];
+            tagsField.value = '';
+            event.target.reset();
+            Notes.update(currentNote, {
+                $set: { tags: tags}
+            });
+            console.log(tags);
+        }
+    },
+
     'click .add-note'(event) {
         if (event.detail === 0) {
             // This was not an actual click, but a click generate by enter in the input field
@@ -67,7 +86,6 @@ Template.editor.events({
         }
 
         event.preventDefault();
-
         resetEditor(event.target);
     },
 
@@ -76,6 +94,10 @@ Template.editor.events({
         resetEditor();
     }
 });
+
+function tagsField() {
+    return document.getElementById('add-tag');
+}
 
 function titleField() {
     return document.getElementById('note-title');
@@ -98,9 +120,6 @@ function resetEditor() {
 
 Template.editor.helpers({
     notetags() {
-        return [
-            { name: "tag1"},
-            { name: "tag2"}
-        ];
+        return tags;
     }, 
 });
