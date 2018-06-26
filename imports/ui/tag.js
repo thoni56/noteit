@@ -5,6 +5,6 @@ import './tag.html';
 
 Template.tag.events({
     'click .list-group-item'() {
-        console.log("klick tag");
+        console.log("klick tag ", this._id);
     }
 });
