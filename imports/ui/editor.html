@@ -1,5 +1,5 @@
 <template name="editor">
-    <form class="edit-title" id='edit-title-form'>
+    <form class="edit-title" id="edit-title-form">
         <button class="operation add-note"
             data-toggle="tooltip" data-animation="true" title="Add new note">
             <i class="fa fa-plus" style="color: lightgreen;"></i>
@@ -8,13 +8,16 @@
             data-toggle="tooltip" data-animation="true" title="Delete current note">
             <i class="fa fa-remove" style="color:red;"></i>
         </button>
-        <input type="text" id="note-title" placeholder="Type title of new note here">
-        <div>
+        <input type="text" id="note-title" placeholder="Type title of new note here"
+            data-toggle="tooltip" data-animation="true" title="Title of this note">
+    </form>
+    <form class="edit-tags" id="edit-tags-form">
+        <div data-toggle="tooltip" data-animation="true" title="List of tags currently assigned to this note">
             {{#each notetags}}
                 {{> notetag}}
             {{/each}}
         </div>
-        <div><input type="text" id="note-tags" placeholder="Type tags here"></div>
+        <input type="text" id="add-tag" placeholder="Type tag name here to add it to the note">
     </form>
     <textarea id="editor"></textarea>
 </template>
