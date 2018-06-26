@@ -5,6 +5,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './editor.html';
 
+import './notetag.js';
+
 export var editor;
 export var currentNote = new ReactiveVar(null);
 
@@ -94,4 +96,11 @@ function resetEditor() {
     editor.value('');
 }
 
-
+Template.editor.helpers({
+    notetags() {
+        return [
+            { name: "tag1"},
+            { name: "tag2"}
+        ];
+    }, 
+});

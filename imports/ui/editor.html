@@ -9,7 +9,11 @@
             <i class="fa fa-remove" style="color:red;"></i>
         </button>
         <input type="text" id="note-title" placeholder="Type title of new note here">
-        <div><span class="badge">tag a</span><span class="badge">tag b</span></div>
+        <div>
+            {{#each notetags}}
+                {{> notetag}}
+            {{/each}}
+        </div>
         <div><input type="text" id="note-tags" placeholder="Type tags here"></div>
     </form>
     <textarea id="editor"></textarea>
