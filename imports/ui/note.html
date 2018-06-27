@@ -1,5 +1,9 @@
 <template name="note">
     <a href="#" class="list-group-item">
-        {{title}}<span class="badge">0</span>
+        {{title}}
+        <span class="badge"
+                data-toggle="tooltip" data-animation="true" title="Number of tags för this note">
+            {{tagCount}}
+        </span>
     </a>
 </template>
