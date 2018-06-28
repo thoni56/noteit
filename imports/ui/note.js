@@ -14,6 +14,6 @@ Template.note.helpers({
 })
 Template.note.events({
     'click .list-group-item'() {
-        load(this._id);
+        load(this._id, this.tags);
     }
 });

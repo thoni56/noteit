@@ -3,7 +3,7 @@ import SimpleMDE from 'simplemde';
 import { Notes } from '../api/notes';
 import { Tags } from '../api/tags';
 import { ReactiveVar } from 'meteor/reactive-var';
-import { ReactiveArray } from 'meteor/manuel:reactivearray';
+import { ReactiveArray } from 'meteor/templates:array';
  
 import './editor.html';
 
@@ -12,23 +12,28 @@ import './notetag.js';
 export var editor;
 export var currentNote = new ReactiveVar(null);
 
-var tags = new ReactiveArray();
+var tagsField;
+var titleField;
 
-export function load(note_id) {
+var tags = ReactiveVar([]);
+
+export function load(note_id, noteTags) {
     save();
     currentNote = note_id;
     var note = Notes.findOne({_id: note_id});
-    titleField().value = note.title;
+    titleField.value = note.title;
     if (note.content === null) {
         editor.value("");
     } else {
         editor.value(note.content);
     }
-    tags.clear();
-    if (note.tags) {
-        tags = tags.concat(note.tags);
+    if (noteTags) {
+        tags.set(noteTags);
+        console.log(noteTags);
+        console.log(Tags.find({ _id: { $in : noteTags }}).fetch());
+    } else {
+        tags.set([]);
     }
-    console.log(Tags.find({ _id: { $in : tags }}).fetch());
 }
 
 export function save() {
@@ -54,37 +59,41 @@ export function save() {
 }
 
 Template.editor.onRendered(function () {
-  editor = new SimpleMDE({element: document.getElementById("editor")});
+    editor = new SimpleMDE({element: document.getElementById("editor")});
+    tagsField = document.getElementById('add-tag');
+    titleField = document.getElementById('note-title')
 });
 
 Template.editor.helpers({
     notetags() {
-        return Tags.find({ _id: { $in : tags }});
+        return Tags.find({ _id: { $in : tags.get() }});
     }, 
 });
 
 Template.editor.events({
-    'submit .edit-title'(event) {
+    'submit .edit-title-form'(event) {
         // Prevent default browser submit
         event.preventDefault();
 
         save();
-        const title = titleField().value.trim();
+        const title = titleField.value.trim();
         if (!editorIsEmpty(title)) {
             editor.codemirror.focus();
         }
     },
 
-    'submit .edit-tags'(event) {
+    'submit .edit-tags-form'(event) {
         event.preventDefault();
-        let tagname = tagsField().value.trim();
+        let tagname = tagsField.value.trim();
         let tag = Tags.findOne({name: tagname});
         if (tag) {
-            tags.push(tag._id);
+            const tagsArray = tags.get();
+            tagsArray.push(tag._id);
+            tags.set(tagsArray);
             tagsField.value = '';
             event.target.reset();
             Notes.update(currentNote, {
-                $set: { tags: tags}
+                $set: { tags: tagsArray }
             });
         }
     },
@@ -96,7 +105,7 @@ Template.editor.events({
         }
 
         event.preventDefault();
-        resetEditor(event.target);
+        resetEditor();
     },
 
     'click .delete-note'(event) {
@@ -104,14 +113,6 @@ Template.editor.events({
         resetEditor();
     }
 });
-
-function tagsField() {
-    return document.getElementById('add-tag');
-}
-
-function titleField() {
-    return document.getElementById('note-title');
-}
 
 function editingExistingNote() {
     return currentNote && Notes.find({_id:currentNote}).count();
@@ -122,8 +123,9 @@ function editorIsEmpty(title) {
 }
 
 function resetEditor() {
-    titleField().value = '';
+    titleField.value = '';
     document.getElementById('edit-title-form').reset(); // Reset the form
     currentNote = null;
     editor.value('');
+    tags.set([]);
 }

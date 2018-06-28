@@ -1,5 +1,5 @@
 <template name="editor">
-    <form class="edit-title" id="edit-title-form">
+    <form class="edit-title-form" id="edit-title-form">
         <button class="operation add-note"
             data-toggle="tooltip" data-animation="true" title="Add new note">
             <i class="fa fa-plus" style="color: lightgreen;"></i>
@@ -11,7 +11,7 @@
         <input type="text" id="note-title" placeholder="Type title of new note here"
             data-toggle="tooltip" data-animation="true" title="Title of this note">
     </form>
-    <form class="edit-tags" id="edit-tags-form">
+    <form class="edit-tags-form" id="edit-tags-form">
         <div data-toggle="tooltip" data-animation="true" title="List of tags currently assigned to this note">
             {{#each notetags}}
                 {{> notetag}}
