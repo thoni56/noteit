@@ -7,7 +7,7 @@ Template.tag.events({
     'click .tag-list-item'() {
         console.log("klick tag ", this._id);
     },
-    'click .remove-tag'() {
-        console.log("remove tag ", this._id);
+    'click .edit-tag'() {
+        console.log("edit tag ", this._id);
     }
 });
