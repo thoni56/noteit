@@ -45,8 +45,8 @@ form input {
   width: 100%;
 }
 
-.edit-title input {
-  width: 85%;
+.edit-title-form input {
+  width: 80%;
 }
 
 #note-title {
@@ -62,7 +62,7 @@ form input {
   float: right;
   font-weight: bold;
   background: none;
-  font-size: 1em;
+  font-size: 1.5em;
   border: none;
   position: relative;
 }
