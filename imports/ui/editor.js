@@ -4,6 +4,7 @@ import { Notes } from '../api/notes';
 import { Tags } from '../api/tags';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { ReactiveArray } from 'meteor/templates:array';
+import { Confirmation } from 'meteor/matdutour:popup-confirm';
  
 import './editor.html';
 
@@ -83,18 +84,26 @@ Template.editor.events({
 
     'submit .edit-tags-form'(event) {
         event.preventDefault();
-        let tagname = tagsField.value.trim();
-        let tag = Tags.findOne({name: tagname});
-        if (tag && currentNote) {
-            const tagsArray = tags.get();
-            if (!tagsArray.includes(tag._id)) {
-                tagsArray.push(tag._id);
-                tags.set(tagsArray);
-                tagsField.value = '';
-                event.target.reset();
-                Notes.update(currentNote, {
-                    $set: { tags: tagsArray }
-                });
+        if (currentNote) {
+            let tagname = tagsField.value.trim();
+            let tag = Tags.findOne({name: tagname});
+            if (!tag) {
+                new Confirmation({
+                    message: "Do you want to create the new tag '"+tagname+"' ?",
+                    title: "Create new tag?",
+                    cancelText: "No",
+                    okText: "Yes",
+                    success: true,
+                    focus: "cancel"
+                }, function (ok) {
+                    if (ok) {
+                        Tags.insert({name: tagname});
+                        tag = Tags.findOne({name: tagname});
+                        addTag(tag, event.target);
+                    }
+                })
+            } else {
+                addTag(tag, event.target);
             }
         }
     },
@@ -114,6 +123,19 @@ Template.editor.events({
         resetEditor();
     }
 });
+
+function addTag(tag, target) {
+    const tagsArray = tags.get();
+    if (!tagsArray.includes(tag._id)) {
+        tagsArray.push(tag._id);
+        tags.set(tagsArray);
+        tagsField.value = '';
+        target.reset();
+        Notes.update(currentNote, {
+            $set: { tags: tagsArray }
+        });
+    }
+}
 
 function editingExistingNote() {
     return currentNote && Notes.find({_id:currentNote}).count();
