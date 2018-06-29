@@ -29,8 +29,6 @@ export function load(note_id, noteTags) {
     }
     if (noteTags) {
         tags.set(noteTags);
-        console.log(noteTags);
-        console.log(Tags.find({ _id: { $in : noteTags }}).fetch());
     } else {
         tags.set([]);
     }
@@ -47,6 +45,7 @@ export function save() {
                 content: editor.value(),
                 createdAt: new Date(),
             });
+            resetTags();
         } else {
             Notes.update(currentNote, {
                 $set: { title: title,
@@ -86,15 +85,17 @@ Template.editor.events({
         event.preventDefault();
         let tagname = tagsField.value.trim();
         let tag = Tags.findOne({name: tagname});
-        if (tag) {
+        if (tag && currentNote) {
             const tagsArray = tags.get();
-            tagsArray.push(tag._id);
-            tags.set(tagsArray);
-            tagsField.value = '';
-            event.target.reset();
-            Notes.update(currentNote, {
-                $set: { tags: tagsArray }
-            });
+            if (!tagsArray.includes(tag._id)) {
+                tagsArray.push(tag._id);
+                tags.set(tagsArray);
+                tagsField.value = '';
+                event.target.reset();
+                Notes.update(currentNote, {
+                    $set: { tags: tagsArray }
+                });
+            }
         }
     },
 
@@ -123,9 +124,24 @@ function editorIsEmpty(title) {
 }
 
 function resetEditor() {
-    titleField.value = '';
-    document.getElementById('edit-title-form').reset(); // Reset the form
     currentNote = null;
-    editor.value('');
-    tags.set([]);
+    resetTitle();
+    resetContent();
+    resetTags();
 }
+
+function resetTitle() {
+    titleField.value = '';
+    document.getElementById('edit-title-form').reset();
+}
+
+function resetContent() {
+    editor.value('');
+}
+
+function resetTags() {
+    tags.set([]);
+    tagsField.value = '';
+    document.getElementById('edit-tags-form').reset();
+}
+
