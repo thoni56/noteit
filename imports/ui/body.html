@@ -1,28 +1,31 @@
 <body>
-    <div class="container">
-      <header class="col-xs-12">
-        <h1>Welcome to NoteIt!</h1>
-      </header>
+  <div class="container">
+    <header class="col-xs-12">
+      <h1>Welcome to NoteIt!</h1>
+    </header>
 
-      <div class="tag-filter col-xs-12" style="margin:0; padding:0;">
-        <div class="col-xs-2">
-          {{#each tags}}
-            {{> tag}}
-          {{/each}}
-        </div>
-      </div>
-      <div class="editor col-xs-6">
-        {{> editor}}
-      </div>
-
-      <div class="notelist col-xs-6">
-        <p style="font-size:1.1em; font-weight: bold;">Notes:</p>
-        <div class="list-group">
-          {{#each notes}}
-            {{> note}}
-         {{/each}}
-        </div>
+    <div class="tag-filter col-xs-12">
+      <div class="col-xs-2 tags-column">
+        {{#each tags}}
+          {{> tag}}
+        {{/each}}
       </div>
     </div>
+
+    <header class="col-xs-6"><h4>Editor</h4></header>
+    <header class="col-xs-6"><h4>Notes</h4></header>
+    
+    <div class="editor col-md-6 col-xs-12" style="padding-left:0;">
+      {{> editor}}
+    </div>
+
+    <div class="notelist col-md-6 col-xs-12" style="padding:0;">
+      <div class="list-group">
+        {{#each notes}}
+          {{> note}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
 
 </body>

@@ -23,20 +23,35 @@ body {
 header {
   background: #d2edf4;
   background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
-  padding: 20px 15px 15px 15px;
   position: relative;
-}
-
-#login-buttons {
-  display: block;
 }
 
 h1 {
   font-size: 2em;
   margin: 0;
   margin-bottom: 10px;
+  padding: 20px 15px 15px 15px;
   display: inline-block;
   margin-right: 1em;
+}
+
+#login-buttons {
+  display: block;
+}
+
+.tag-filter {
+  margin:0;
+  padding:0;
+}
+
+.tags-column {
+  max-height: 200px;
+  padding:0;
+  overflow-y:auto;
+}
+
+header h4 {
+  padding:0;
 }
 
 form input {
