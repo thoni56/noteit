@@ -3,10 +3,10 @@ import { load } from '../ui/editor';
 
 import './note.html';
 
-var active = new ReactiveVar(undefined);
+var activeNote = new ReactiveVar(undefined);
 
 export function setActive(id) {
-    active.set(id);
+    activeNote.set(id);
 }
 
 Template.note.helpers({
@@ -18,7 +18,7 @@ Template.note.helpers({
         }
     },
     active() {
-        if (this._id == active.get()) {
+        if (this._id == activeNote.get()) {
             return "active";
         } else {
             return "";
@@ -28,6 +28,6 @@ Template.note.helpers({
 Template.note.events({
     'click .list-group-item'() {
         load(this._id, this.tags);
-        active.set(this._id);
+        activeNote.set(this._id);
     }
 });
