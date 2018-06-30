@@ -44,6 +44,11 @@ h1 {
   padding-bottom:2px;
 }
 
+.reset-tag-filter {
+  font-weight:bold;
+  padding-left:15px;
+}
+
 .tag-filter {
   margin:0;
   padding:0;
