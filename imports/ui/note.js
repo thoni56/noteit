@@ -3,6 +3,12 @@ import { load } from '../ui/editor';
 
 import './note.html';
 
+var active = new ReactiveVar(undefined);
+
+export function setActive(id) {
+    active.set(id);
+}
+
 Template.note.helpers({
     tagCount() {
         if (this.tags) {
@@ -10,10 +16,18 @@ Template.note.helpers({
         } else {
             return 0;
         }
+    },
+    active() {
+        if (this._id == active.get()) {
+            return "active";
+        } else {
+            return "";
+        }
     }
 })
 Template.note.events({
     'click .list-group-item'() {
         load(this._id, this.tags);
+        active.set(this._id);
     }
 });

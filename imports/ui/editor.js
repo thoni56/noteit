@@ -3,8 +3,8 @@ import SimpleMDE from 'simplemde';
 import { Notes } from '../api/notes';
 import { Tags } from '../api/tags';
 import { ReactiveVar } from 'meteor/reactive-var';
-import { ReactiveArray } from 'meteor/templates:array';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
+import { setActive } from './note';
  
 import './editor.html';
 
@@ -115,12 +115,15 @@ Template.editor.events({
         }
 
         event.preventDefault();
+        save();
         resetEditor();
+        setActive(undefined);
     },
 
     'click .delete-note'(event) {
         Notes.remove(currentNote);
         resetEditor();
+        setActive(undefined);
     }
 });
 
