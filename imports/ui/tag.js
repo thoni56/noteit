@@ -5,6 +5,10 @@ import './tag.html';
 
 var activeTag = new ReactiveVar(undefined);
 
+export function setActiveTag(tagId) {
+    activeTag.set(tagId);
+}
+
 Template.tag.helpers({
     active() {
         if (this._id == activeTag.get()) {
@@ -16,10 +20,7 @@ Template.tag.helpers({
 });
 
 Template.tag.events({
-    'click .reset-tag-filter'() {
-        activeTag.set(undefined);
-    },
-    'click .tag'() {
+   'click .tag'() {
         activeTag.set(this._id);
     },
     'click .edit-tag'() {
