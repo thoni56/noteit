@@ -18,10 +18,10 @@ var titleField;
 
 var tags = ReactiveVar([]);
 
-export function load(note_id, noteTags) {
+export function load(noteId, noteTags) {
     save();
-    currentNote = note_id;
-    var note = Notes.findOne({_id: note_id});
+    currentNote = noteId;
+    var note = Notes.findOne({_id: noteId});
     titleField.value = note.title;
     if (note.content === null) {
         editor.value("");
@@ -124,13 +124,13 @@ Template.editor.events({
     }
 });
 
-function addTag(tag, target) {
+function addTag(tag, form) {
     const tagsArray = tags.get();
     if (!tagsArray.includes(tag._id)) {
         tagsArray.push(tag._id);
         tags.set(tagsArray);
         tagsField.value = '';
-        target.reset();
+        form.reset();
         Notes.update(currentNote, {
             $set: { tags: tagsArray }
         });
