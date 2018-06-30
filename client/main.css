@@ -47,6 +47,7 @@ h1 {
 .reset-tag-filter {
   font-weight:bold;
   padding-left:15px;
+  width: 100%;
 }
 
 .tag-filter {
@@ -61,7 +62,7 @@ h1 {
 }
 
 header h4 {
-  padding:0;
+  padding:10px;
 }
 
 form input {
