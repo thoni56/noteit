@@ -33,6 +33,7 @@ export function load(noteId, noteTags) {
     } else {
         tags.set([]);
     }
+    document.getElementById('edit-tags-form').reset();
 }
 
 export function save() {
