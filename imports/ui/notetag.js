@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating';
 import './notetag.html';
 
 Template.notetag.events({
-    'click .list-group-item'() {
+    'click .badge'() {
         console.log("klick notetag ", this._id);
     }
 });
