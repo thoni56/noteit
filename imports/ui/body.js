@@ -10,8 +10,7 @@ import './body.html';
 
 Template.body.helpers({
     notes() {
-        var activeTags = getActiveTags();
-        return notesWithTags(activeTags);
+        return notesWithTags(getActiveTags());
     },
     tags() {
         return Tags.find({}, { sort: { name : 1}});
