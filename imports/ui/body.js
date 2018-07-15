@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Notes } from '../api/notes.js';
 import { Tags } from '../api/tags.js';
-import { setActiveTags } from './tag';
+import { setActiveTags, getActiveTags } from './tag';
 
 import './note.js';
 import './tag.js';
@@ -10,7 +10,12 @@ import './body.html';
 
 Template.body.helpers({
     notes() {
-        return Notes.find({}, { sort: { createdAt: -1}});
+        var activeTags = getActiveTags();
+        if (activeTags.length == 0) {
+            return Notes.find({}, { sort: { createdAt: -1}});
+        } else {
+            return Notes.find({ tags: { $all: activeTags }}, { sort: { createdAt: -1}});
+        }
     },
     tags() {
         return Tags.find({}, { sort: { name : 1}});
