@@ -5,7 +5,6 @@ import './tag.html';
 
 export function setActiveTags(tagList) {
     activeTags.set(tagList);
-    console.log('set active tags ' + tagList);
 }
 
 export function getActiveTags() {
@@ -25,7 +24,7 @@ Template.tag.helpers({
 });
 
 Template.tag.events({
-   'click .tag'() {
+    'click .tag'() {
         setActiveTags([this._id]);
     },
     'click .edit-tag'() {
