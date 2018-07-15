@@ -26,11 +26,16 @@ Template.tag.helpers({
 Template.tag.events({
     'click .tag'() {
         setActiveTags([this._id]);
+        enableReset();
     },
     'click .edit-tag'() {
         console.log("edit tag ", this._id);
     }
 });
+
+function enableReset() {
+    document.getElementById("reset-tag-0").classList.remove("disabled");
+}
 
 function isInActiveTags(id) {
     return activeTags.get().indexOf(id) != -1;

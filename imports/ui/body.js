@@ -23,5 +23,10 @@ Template.body.helpers({
 Template.body.events({
     'click .reset-tag-filter'() {
         setActiveTags([]);
+        disableReset();
     },
 });
+
+function disableReset() {
+    document.getElementById("reset-tag-0").classList.add("disabled");
+}
