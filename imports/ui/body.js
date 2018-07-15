@@ -20,6 +20,9 @@ Template.body.helpers({
     tags() {
         return Tags.find({}, { sort: { name : 1}});
     },
+    noteCount() {
+        return Notes.find({}).count();
+    }
 });
 
 Template.body.events({
