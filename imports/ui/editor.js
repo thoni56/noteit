@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
-import { Notes } from '../api/notes';
+import { Notes, tagsForNote } from '../api/notes';
 import { Tags } from '../api/tags';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
@@ -28,11 +28,7 @@ export function load(noteId, noteTags) {
     } else {
         editor.value(note.content);
     }
-    if (noteTags) {
-        tags.set(noteTags);
-    } else {
-        tags.set([]);
-    }
+    tags.set(tagsForNote(noteId));
     document.getElementById('edit-tags-form').reset();
 }
 

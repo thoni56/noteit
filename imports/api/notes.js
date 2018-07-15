@@ -9,3 +9,14 @@ export function notesWithTags(tags) {
         return Notes.find({ tags: { $all: tags }}, { sort: { createdAt: -1}});
     }
 }
+
+export function tagsForNote(noteId) {
+    // Abstraction for relation between tags and notes
+    var note = Notes.findOne({_id: noteId});
+    if (note) {
+        return note.tags;
+    } else {
+        return [];
+    }
+
+}
