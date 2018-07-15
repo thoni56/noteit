@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Notes } from '../api/notes.js';
 import { Tags } from '../api/tags.js';
-import { setActiveTag } from './tag';
+import { setActiveTags } from './tag';
 
 import './note.js';
 import './tag.js';
@@ -19,6 +19,6 @@ Template.body.helpers({
 
 Template.body.events({
     'click .reset-tag-filter'() {
-        setActiveTag(undefined);
+        setActiveTags([]);
     },
 });
