@@ -27,7 +27,7 @@ Template.note.helpers({
 })
 Template.note.events({
     'click .list-group-item'() {
-        load(this._id, this.tags);
+        load(this._id);
         activeNote.set(this._id);
     }
 });

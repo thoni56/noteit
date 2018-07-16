@@ -16,7 +16,7 @@ var titleField;
 
 var tags = ReactiveVar([]);
 
-export function load(noteId, noteTags) {
+export function load(noteId) {
     save();
     currentNote = noteId;
     var note = Notes.findOne({_id: noteId});
@@ -105,8 +105,7 @@ Template.editor.events({
 
     'click .add-note'(event) {
         if (event.detail === 0) {
-            // This was not an actual click, but a click generate by enter in the input field
-            return;
+            return;     // Not an actual click, but a click generate by enter in the title field
         }
 
         event.preventDefault();
