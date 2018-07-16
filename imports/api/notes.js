@@ -13,7 +13,7 @@ export function notesWithTags(tags) {
 export function tagsForNote(noteId) {
     // Abstraction for relation between tags and notes
     var note = Notes.findOne({_id: noteId});
-    if (note) {
+    if (note && note.tags) {
         return note.tags;
     } else {
         return [];
