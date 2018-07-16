@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating';
-import { load } from '../ui/editor';
+import { load } from '../editor/editor.js';
 
 import './note.html';
 

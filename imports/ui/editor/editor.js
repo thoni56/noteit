@@ -1,10 +1,10 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
-import { Notes, tagsForNote } from '../api/notes';
-import { Tags } from '../api/tags';
+import { Notes, tagsForNote } from '../../api/notes.js';
+import { Tags } from '../../api/tags.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
-import { setActive } from './note';
+import { setActive } from '../notelist/note.js';
  
 import './editor.html';
 
