@@ -5,12 +5,7 @@
     </header>
 
     <div class="tag-filter col-xs-12">
-      <div class="col-xs-2 tags-column">
-        <div class="reset-tag-filter btn btn-info btn-xs disabled" id="reset-tag-0">Reset</div>
-        {{#each tags}}
-          {{> tag}}
-        {{/each}}
-      </div>
+      {{> tagselector}}
     </div>
     
     <div class="editor col-md-6 col-xs-12" style="padding-left:0;">
