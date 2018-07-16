@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
-import { Tags } from '../api/tags.js';
 
 import './tag.html';
+
 
 export function setActiveTags(tagList) {
     activeTags.set(tagList);
