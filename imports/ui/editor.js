@@ -8,8 +8,6 @@ import { setActive } from './note';
  
 import './editor.html';
 
-import './notetag.js';
-
 export var editor;
 export var currentNote = new ReactiveVar(null);
 

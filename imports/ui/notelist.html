@@ -1,0 +1,10 @@
+<template name="notelist">
+    <header>
+        <h4>Notes ({{noteCount}})</h4>
+    </header>
+    <div class="list-group">
+        {{#each notes}}
+            {{> note}}
+        {{/each}}
+    </div>
+</template>
