@@ -4,12 +4,10 @@ import { setActiveTags } from './tag.js';
 
 import './tagselector.html';
 
-var lastColumn;
+var nextColumn;
 
 export function createNewColumn() {
-    lastColumn = document.createElement("p");
-    lastColumn.appendChild(document.createTextNode("new column"));
-    document.getElementById("tagselector").appendChild(lastColumn);
+    Blaze.render(Template.tagselector, document.getElementById("tagselector"));
 }
 
 Template.tagselector.helpers({
@@ -22,7 +20,7 @@ Template.tagselector.events({
     'click .reset-tag-filter'() {
         setActiveTags([]);
         disableReset();
-        document.getElementById("tagselector").removeChild(lastColumn);
+        document.getElementById("tagselector").removeChild(nextColumn);
     },
 });
 
