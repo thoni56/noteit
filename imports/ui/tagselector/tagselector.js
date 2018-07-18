@@ -2,8 +2,13 @@ import { Template } from 'meteor/templating';
 import { Tags } from '../../api/tags.js';
 import { setActiveTags } from './tag.js';
 
-
 import './tagselector.html';
+
+export function createNewColumn() {
+    var newColumn = document.createElement("p");
+    newColumn.appendChild(document.createTextNode("new column"));
+    document.getElementById("tagselector").appendChild(newColumn);
+}
 
 Template.tagselector.helpers({
     tags() {

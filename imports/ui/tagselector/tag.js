@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { createNewColumn } from './tagselector';
 
 import './tag.html';
 
@@ -27,6 +28,7 @@ Template.tag.events({
     'click .tag'() {
         setActiveTags([this._id]);
         enableReset();
+        createNewColumn();
     },
     'click .edit-tag'() {
         console.log("edit tag ", this._id);
