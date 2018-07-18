@@ -1,6 +1,8 @@
 <template name="tagselector">
     <div class="col-xs-2 tags-column">
-        <div class="reset-tag-filter btn btn-info btn-xs disabled" id="reset-tag-0">None</div>
-        {{#each tags}} {{> tag}} {{/each}}
+        <div class="reset-tag-filter btn btn-info btn-xs disabled" id="reset-tag-0">Any</div>
+        {{#each tags}}
+            {{> tag}}
+        {{/each}}
     </div>
 </template>

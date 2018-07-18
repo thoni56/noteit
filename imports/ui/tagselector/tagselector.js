@@ -5,13 +5,13 @@ import { setActiveTags } from './tag.js';
 
 import './tagselector.html';
 
-Template.body.helpers({
+Template.tagselector.helpers({
     tags() {
         return Tags.find({}, { sort: { name : 1}});
     }
 });
 
-Template.body.events({
+Template.tagselector.events({
     'click .reset-tag-filter'() {
         setActiveTags([]);
         disableReset();
