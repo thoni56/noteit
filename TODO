@@ -1,0 +1,7 @@
+NOTEIT:
+
+Tagselector:
+    ☐ Remove all columns after the current one on reset to ANY @started(18-07-19 12:00)
+    ☐ Parameterize tagcolumns
+    ☐ Use tag column number to differentiate between reset events
+    ☐ Don't remove single tag column in selector
