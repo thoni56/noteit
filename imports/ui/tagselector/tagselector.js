@@ -7,16 +7,8 @@ import './tagselector.html';
 
 export var columns = [];
 
-Template.tagselector.events({
-    'click .reset-tag-filter'() {
-        setActiveTags([]);
-        disableReset();
-        var lastColumn = columns.pop();
-        lastColumn.parentNode.removeChild(lastColumn);
-    },
-});
 
-Template.tagselector.onRendered(function() {
+Template.tagselector.onRendered(function () {
     columns.push(createNewColumn());
 });
 
