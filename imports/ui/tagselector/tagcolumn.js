@@ -1,10 +1,10 @@
 import { Template } from 'meteor/templating';
 import { Tags } from '../../api/tags.js';
 import { setActiveTags } from './tag.js';
+import { columns } from './tagselector';
 
 import './tagcolumn.html';
 
-var columns = [];
 
 export function createNewColumn() {
     const tagselectorElement = document.getElementById("tagselector");

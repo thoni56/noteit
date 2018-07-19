@@ -5,7 +5,7 @@ import { createNewColumn } from './tagcolumn';
 
 import './tagselector.html';
 
-var columns = [];
+export var columns = [];
 
 Template.tagselector.events({
     'click .reset-tag-filter'() {
