@@ -1,23 +1,30 @@
 import { Template } from 'meteor/templating';
 import { Tags } from '../../api/tags.js';
 import { setActiveTags } from './tag.js';
-import { createNewColumn } from './tagcolumn';
 
-import './tagselector.html';
+import './tagcolumn.html';
 
 var columns = [];
 
-Template.tagselector.events({
+export function createNewColumn() {
+    const tagselectorElement = document.getElementById("tagselector");
+    Blaze.render(Template.tagcolumn, tagselectorElement);
+    columns.push(tagselectorElement.lastChild);
+}
+
+Template.tagcolumn.helpers({
+    tags() {
+        return Tags.find({}, { sort: { name : 1}});
+    }
+});
+
+Template.tagcolumn.events({
     'click .reset-tag-filter'() {
         setActiveTags([]);
         disableReset();
         var lastColumn = columns.pop();
         lastColumn.parentNode.removeChild(lastColumn);
     },
-});
-
-Template.tagselector.onRendered(function() {
-    columns.push(createNewColumn());
 });
 
 function disableReset() {

@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating';
-import { createNewColumn } from './tagselector';
+import { createNewColumn } from './tagcolumn';
 
 import './tag.html';
 
