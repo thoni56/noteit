@@ -11,7 +11,3 @@ export var columns = [];
 Template.tagselector.onRendered(function () {
     createNewColumn();
 });
-
-function disableReset() {
-    document.getElementById("reset-tag-0").classList.add("disabled");
-}
