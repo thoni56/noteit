@@ -9,7 +9,7 @@ export var columns = [];
 
 
 Template.tagselector.onRendered(function () {
-    columns.push(createNewColumn());
+    createNewColumn();
 });
 
 function disableReset() {
