@@ -23,9 +23,15 @@ Template.tagcolumn.helpers({
 
 Template.tagcolumn.events({
     'click .reset-tag-filter'(event) {
-        const columnIndex = event.target.id.slice('reset-tag-'.length);
+        const columnIndex = Number(event.target.id.slice('reset-tag-'.length));
         console.log('reset tag in column ', columnIndex)
-        setActiveTags(getActiveTags().slice(columnIndex));
+        let tags = getActiveTags();
+        if (columnIndex == 0) {
+            tags = [];
+        } else {
+            tags = tags.slice(columnIndex-1);
+        }
+        setActiveTags(tags);
         disableResetInColumn(columnIndex);
         while (columns.length > columnIndex+1) {
             const column = columns.pop();
