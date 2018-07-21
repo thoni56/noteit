@@ -2,6 +2,8 @@ NOTEIT:
 
 Tagselector:
   ✔ Don't remove single tag column in selector @done(18-07-20 13:21)
-  ☐ Parameterize tagcolumns
-  ☐ Remove all columns after the current one on reset to ANY
-  ☐ Use tag column number to differentiate between reset events
+  ✔ Parameterize tagcolumns @done(18-07-21 19:19)
+  ✔ Remove all columns after the current one on reset to ANY @done(18-07-21 19:20)
+  ✔ Use tag column number to differentiate between reset events @done(18-07-21 19:20)
+  ☐ Highlight only the tag corresponding to column
+  ☐ Find tags depending on tags on notes filtered by previous columns
