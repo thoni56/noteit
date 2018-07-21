@@ -25,9 +25,11 @@ Template.tag.helpers({
 });
 
 Template.tag.events({
-    'click .tag'() {
-        setActiveTags([this._id]);
-        enableReset();
+    'click .tag'(event) {
+        var column = event.target.parentNode.id.slice('tag-column-'.length);
+        console.log('select tag in column '+column);
+        setActiveTagInColumn(this._id, column);
+        enableReset(column);
         createNewColumn();
     },
     'click .edit-tag'() {
@@ -35,10 +37,14 @@ Template.tag.events({
     }
 });
 
-function enableReset() {
-    document.getElementById("reset-tag-0").classList.remove("disabled");
+function enableReset(column) {
+    document.getElementById("reset-tag-"+column).classList.remove("disabled");
 }
 
 function isInActiveTags(id) {
     return activeTags.get().indexOf(id) != -1;
+}
+
+function setActiveTagInColumn(id, column) {
+    setActiveTags([]);
 }

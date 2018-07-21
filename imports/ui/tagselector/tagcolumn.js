@@ -15,13 +15,18 @@ export function createNewColumn() {
 Template.tagcolumn.helpers({
     tags() {
         return Tags.find({}, { sort: { name: 1 } });
+    },
+    index() {
+        return columns.length;
     }
 });
 
 Template.tagcolumn.events({
-    'click .reset-tag-filter'() {
+    'click .reset-tag-filter'(event) {
+        var column = event.target.id.substring('reset-tag-'.length);
+        console.log('reset tag in column ', column)
         setActiveTags([]);
-        disableReset();
+        disableResetInColumn(column);
         if (columns.length > 1) {
             var lastColumn = columns.pop();
             lastColumn.parentNode.removeChild(lastColumn);
@@ -29,6 +34,6 @@ Template.tagcolumn.events({
     },
 });
 
-function disableReset() {
-    document.getElementById("reset-tag-0").classList.add("disabled");
+function disableResetInColumn(column) {
+    document.getElementById("reset-tag-"+column).classList.add("disabled");
 }
