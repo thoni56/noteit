@@ -3,7 +3,7 @@ import { load } from '../editor/editor.js';
 
 import './note.html';
 
-var activeNote = new ReactiveVar(undefined);
+const activeNote = new ReactiveVar(undefined);
 
 export function setActive(id) {
     activeNote.set(id);

@@ -23,12 +23,12 @@ Template.tagcolumn.helpers({
 
 Template.tagcolumn.events({
     'click .reset-tag-filter'(event) {
-        var column = event.target.id.substring('reset-tag-'.length);
+        const column = event.target.id.substring('reset-tag-'.length);
         console.log('reset tag in column ', column)
         setActiveTags([]);
         disableResetInColumn(column);
         if (columns.length > 1) {
-            var lastColumn = columns.pop();
+            const lastColumn = columns.pop();
             lastColumn.parentNode.removeChild(lastColumn);
         }
     },

@@ -3,7 +3,7 @@ import { createNewColumn } from './tagcolumn';
 
 import './tagselector.html';
 
-export var columns = [];
+export const columns = [];
 
 
 Template.tagselector.onRendered(function () {

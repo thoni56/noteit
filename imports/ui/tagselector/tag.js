@@ -12,7 +12,7 @@ export function getActiveTags() {
     return activeTags.get();
 }
 
-var activeTags = new ReactiveVar([]);
+const activeTags = new ReactiveVar([]);
 
 Template.tag.helpers({
     active() {
@@ -26,7 +26,7 @@ Template.tag.helpers({
 
 Template.tag.events({
     'click .tag'(event) {
-        var column = event.target.parentNode.id.slice('tag-column-'.length);
+        const column = event.target.parentNode.id.slice('tag-column-'.length);
         console.log('select tag in column '+column);
         setActiveTagInColumn(this._id, column);
         enableReset(column);
