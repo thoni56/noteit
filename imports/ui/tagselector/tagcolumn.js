@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
-import { Tags } from '../../api/tags.js';
-import { setActiveTags, getActiveTags } from './tag.js';
+import { Tags } from '../../api/tags';
+import { setActiveTags, getActiveTags } from './tag';
 import { columns } from './tagselector';
 
 import './tagcolumn.html';
