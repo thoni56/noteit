@@ -28,7 +28,7 @@ Template.tag.events({
     'click .tag'(event) {
         const column = event.target.parentNode.id.slice('tag-column-'.length);
         console.log('select tag in column '+column);
-        setActiveTagInColumn(this._id, column);
+        pushTag(this._id);
         enableReset(column);
         createNewColumn();
     },
@@ -45,7 +45,7 @@ function isInActiveTags(id) {
     return activeTags.get().indexOf(id) != -1;
 }
 
-function setActiveTagInColumn(id, column) {
+function pushTag(id) {
     const tags = getActiveTags();
     tags.push(id);
     setActiveTags(tags);

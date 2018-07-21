@@ -27,9 +27,9 @@ Template.tagcolumn.events({
         console.log('reset tag in column ', columnIndex)
         setActiveTags(getActiveTags().slice(columnIndex));
         disableResetInColumn(columnIndex);
-        if (columns.length > 1) {
-            const lastColumn = columns.pop();
-            lastColumn.parentNode.removeChild(lastColumn);
+        while (columns.length > columnIndex+1) {
+            const column = columns.pop();
+            column.parentNode.removeChild(column);
         }
     },
 });
