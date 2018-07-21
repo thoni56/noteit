@@ -23,10 +23,10 @@ Template.tagcolumn.helpers({
 
 Template.tagcolumn.events({
     'click .reset-tag-filter'(event) {
-        const column = event.target.id.substring('reset-tag-'.length);
-        console.log('reset tag in column ', column)
+        const columnIndex = event.target.id.slice('reset-tag-'.length);
+        console.log('reset tag in column ', columnIndex)
         setActiveTags([]);
-        disableResetInColumn(column);
+        disableResetInColumn(columnIndex);
         if (columns.length > 1) {
             const lastColumn = columns.pop();
             lastColumn.parentNode.removeChild(lastColumn);
