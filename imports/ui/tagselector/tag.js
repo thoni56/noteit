@@ -26,7 +26,7 @@ Template.tag.helpers({
 
 Template.tag.events({
     'click .tag'(event) {
-        const column = event.target.parentNode.id.slice('tag-column-'.length);
+        const column = Number(event.target.parentNode.id.slice('tag-column-'.length));
         console.log('select tag in column '+column);
         pushTag(this._id);
         enableReset(column);
