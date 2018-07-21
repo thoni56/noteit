@@ -46,5 +46,7 @@ function isInActiveTags(id) {
 }
 
 function setActiveTagInColumn(id, column) {
-    setActiveTags([]);
+    const tags = getActiveTags();
+    tags.push(id);
+    setActiveTags(tags);
 }
