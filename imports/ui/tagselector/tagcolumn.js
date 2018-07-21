@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Tags } from '../../api/tags.js';
-import { setActiveTags } from './tag.js';
+import { setActiveTags, getActiveTags } from './tag.js';
 import { columns } from './tagselector';
 
 import './tagcolumn.html';
@@ -25,7 +25,7 @@ Template.tagcolumn.events({
     'click .reset-tag-filter'(event) {
         const columnIndex = event.target.id.slice('reset-tag-'.length);
         console.log('reset tag in column ', columnIndex)
-        setActiveTags([]);
+        setActiveTags(getActiveTags().slice(columnIndex));
         disableResetInColumn(columnIndex);
         if (columns.length > 1) {
             const lastColumn = columns.pop();
