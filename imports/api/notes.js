@@ -3,10 +3,12 @@ import { Mongo } from 'meteor/mongo';
 export const Notes = new Mongo.Collection('Notes');
 
 export function notesWithTags(tags) {
-    if (tags.length == 0) {
+    // TODO: Should not need to know about the undefined element in tags...
+    if (tags.length == 1) {
         return Notes.find({}, { sort: { createdAt: -1}});
     } else {
-        return Notes.find({ tags: { $all: tags }}, { sort: { createdAt: -1}});
+        const activeTags = tags.slice(0, tags.length-1);
+        return Notes.find({ tags: { $all: activeTags }}, { sort: { createdAt: -1}});
     }
 }
 
