@@ -16,6 +16,7 @@ const activeTags = new ReactiveVar([undefined]);
 
 Template.tagselector.helpers({
     columns() {
+        // Need this many columns
         return activeTags.get();
     },
     tags() {
@@ -38,13 +39,11 @@ Template.tagselector.helpers({
 Template.tagselector.events({
     'click .tag'(event) {
         const columnIndex = Number(event.target.parentNode.id.slice('tag-column-'.length));
-        console.log('select tag in column ' + columnIndex + ' = ' + this._id);
         popTags(columnIndex);
         pushTag(this._id);
     },
     'click .reset-tag-filter'(event) {
         const columnIndex = Number(event.target.id.slice('reset-tag-'.length));
-        console.log('reset tag in column ', columnIndex)
         popTags(columnIndex);
     },
     'click .edit-tag'() {
