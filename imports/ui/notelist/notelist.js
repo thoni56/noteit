@@ -8,7 +8,10 @@ Template.notelist.helpers({
     notes() {
         return notesWithTags(getActiveTags());
     },
-    noteCount() {
+    filteredCount() {
+        return notesWithTags(getActiveTags()).count();
+    },
+    totalCount() {
         return Notes.find({}).count();
     }
 });

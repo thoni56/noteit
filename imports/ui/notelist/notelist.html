@@ -1,6 +1,6 @@
 <template name="notelist">
     <header>
-        <h4>Notes ({{noteCount}})</h4>
+        <h4>Notes ({{filteredCount}} out of {{totalCount}})</h4>
     </header>
     <div class="list-group">
         {{#each notes}}
