@@ -8,10 +8,19 @@ Template.notelist.helpers({
     notes() {
         return notesWithTags(getActiveTags());
     },
-    filteredCount() {
-        return notesWithTags(getActiveTags()).count();
-    },
-    totalCount() {
-        return Notes.find({}).count();
+    counter() {
+        let message = "";
+        if (getActiveTags().length > 0) {
+            message = filteredCount()+" out of ";
+        }
+        return message += totalCount();
     }
 });
+
+function filteredCount() {
+    return notesWithTags(getActiveTags()).count();
+};
+
+function totalCount() {
+    return Notes.find({}).count();
+};
