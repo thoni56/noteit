@@ -27,6 +27,11 @@ Template.tagselector.helpers({
         } else {
             return "";
         }
+    },
+    disabled(columnIndex) {
+        if (activeTags.get().length == columnIndex+1) {
+            return "disabled";
+        }
     }
 });
 
@@ -34,14 +39,13 @@ Template.tagselector.events({
     'click .tag'(event) {
         const columnIndex = Number(event.target.parentNode.id.slice('tag-column-'.length));
         console.log('select tag in column ' + columnIndex + ' = ' + this._id);
+        popTags(columnIndex);
         pushTag(this._id);
-        enableResetInColumn(columnIndex);
     },
     'click .reset-tag-filter'(event) {
         const columnIndex = Number(event.target.id.slice('reset-tag-'.length));
         console.log('reset tag in column ', columnIndex)
         popTags(columnIndex);
-        disableResetInColumn(columnIndex);
     },
     'click .edit-tag'() {
         console.log("edit tag ", this._id);
@@ -65,12 +69,4 @@ function pushTag(id) {
     const tags = activeTags.get();
     tags.splice(tags.length - 1, 0, id);
     activeTags.set(tags);
-}
-
-function enableResetInColumn(column) {
-    document.getElementById("reset-tag-" + column).classList.remove("disabled");
-}
-
-function disableResetInColumn(column) {
-    document.getElementById("reset-tag-" + column).classList.add("disabled");
 }
