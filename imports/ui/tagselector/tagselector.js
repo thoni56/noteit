@@ -44,6 +44,9 @@ Template.tagselector.events({
         console.log('reset tag in column ', columnIndex)
         popTags(columnIndex);
         disableResetInColumn(columnIndex);
+    },
+    'click .edit-tag'() {
+        console.log("edit tag ", this._id);
     }
 });
 
