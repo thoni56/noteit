@@ -1,4 +1,21 @@
 <template name="tagselector">
     <div id="tagselector">
+        {{#each columns}}
+            <div class="col-xs-2 tags-column" id="tag-column-{{@index}}">
+                <div class="reset-tag-filter btn btn-info btn-xs disabled" id="reset-tag-{{@index}}">Any</div>
+                {{#let index=@index}}
+                    {{#each tags}}
+                        <a href="#" class="tag list-group-item {{active index}}">
+                            <span class="tag-list-item">
+                                {{name}}
+                            </span>
+                            <span class="pull-right edit-tag">
+                                <i class="fa fa-pencil"></i>
+                            </span>
+                        </a>
+                    {{/each}}
+                {{/let}}
+            </div>
+        {{/each}}
     </div>
 </template>
