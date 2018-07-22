@@ -5,5 +5,6 @@ Tagselector:
   ✔ Parameterize tagcolumns @done(18-07-21 19:19)
   ✔ Remove all columns after the current one on reset to ANY @done(18-07-21 19:20)
   ✔ Use tag column number to differentiate between reset events @done(18-07-21 19:20)
-  ☐ Highlight only the tag corresponding to column
-  ☐ Find tags depending on tags on notes filtered by previous columns
+  ✔ Highlight only the tag corresponding to column @done(18-07-22 13:03)
+  ✔ Find tags depending on tags on notes filtered by previous columns @done(18-07-22 13:04)
+  ☐ Handle a new selection in a previous column
