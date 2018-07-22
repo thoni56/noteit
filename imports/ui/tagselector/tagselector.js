@@ -3,12 +3,10 @@ import './tagselector.html';
 import { Tags } from '../../api/tags';
 
 
-export function setActiveTags(tagList) {
-    activeTags.set(tagList);
-}
-
 export function getActiveTags() {
-    return activeTags.get();
+    let tags = activeTags.get();
+    tags = tags.slice(0, tags.length-1);
+    return tags;
 }
 
 // The activeTags always contain a last element which is undefined.
@@ -18,7 +16,7 @@ const activeTags = new ReactiveVar([undefined]);
 
 Template.tagselector.helpers({
     columns() {
-        return getActiveTags();
+        return activeTags.get();
     },
     tags() {
         return Tags.find();
@@ -51,22 +49,22 @@ Template.tagselector.events({
 });
 
 function selectedTagInColumn(columnIndex) {
-    const tags = getActiveTags();
+    const tags = activeTags.get();
     const tag = tags[columnIndex];
     return tag;
 }
 
 function popTags(columnIndex) {
-    let tags = getActiveTags();
+    let tags = activeTags.get();
     tags = tags.slice(0, columnIndex);
     tags.push(undefined);
-    setActiveTags(tags);
+    activeTags.set(tags);
 }
 
 function pushTag(id) {
-    const tags = getActiveTags();
+    const tags = activeTags.get();
     tags.splice(tags.length - 1, 0, id);
-    setActiveTags(tags);
+    activeTags.set(tags);
 }
 
 function enableResetInColumn(column) {
