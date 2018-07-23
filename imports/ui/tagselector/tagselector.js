@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
-import './tagselector.html';
 import { Tags } from '../../api/tags';
+import './tagselector.html';
+import { notesWithTags } from '../../api/notes';
 
 
 export function getActiveTags() {
@@ -20,7 +21,7 @@ Template.tagselector.helpers({
         return activeTags.get();
     },
     tags(columnIndex) {
-        return filteredTags(Tags.find(), columnIndex, activeTags.get());
+        return filteredTags(columnIndex, activeTags.get());
     },
     active(columnIndex) {
         if (this._id == selectedTagInColumn(columnIndex)) {
@@ -51,10 +52,28 @@ Template.tagselector.events({
     }
 });
 
-function filteredTags(tags, columnIndex, activeTags) {
-    const tag = activeTags[0];
-    const notes = notesWithTag(tag);
-    return tags;
+function filteredTags(columnIndex, activeTagNames) {
+    if (columnIndex == 0) {
+        return Tags.find();
+    }
+
+    // Get notes with all tags previous to columnIndex
+    const tagNames = activeTagNames.slice(0, columnIndex); // Remove last element (always 'undefined')
+    const notes = notesWithTags(tagNames);
+    // Collect all tags from those notes
+    const nextTagNames = new Set();
+    notes.forEach(function(note) {
+        note.tags.forEach(function(tag) {
+            nextTagNames.add(tag);
+        });
+    });
+    // Remove all previous tags from the set
+    tagNames.forEach(function (tag) {
+        nextTagNames.delete(tag);
+    })
+    // Return a collection of Tags
+    const tags = Array.from(nextTagNames);
+    return Tags.find({ _id: { $in : tags }});
 }
 
 function selectedTagInColumn(columnIndex) {
