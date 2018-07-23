@@ -1,27 +1,30 @@
 import { Template } from 'meteor/templating';
 import { Tags } from '../../api/tags';
-import './tagselector.html';
 import { notesWithTags } from '../../api/notes';
+
+import './tagselector.html';
 
 
 export function getActiveTags() {
-    let tags = activeTags.get();
-    tags = tags.slice(0, tags.length-1);
+    let tags = columnTags.get();
+    tags = tags.slice(0, tags.length - 1);
     return tags;
 }
 
-// The activeTags always contain a last element which is undefined. This means
-// that there is no tag selected in that column, but since generating templates
-// for all visible column we use this extra element to provide the last column.
-const activeTags = new ReactiveVar([undefined]);
+// The columnTags always contain a last element which is 'undefined' to maintain
+// a length which is as long as the number of columns required. The 'undefined'
+// value means that there is no tag selected in that column. To get the actual
+// active tags the last value need to be removed.
+const columnTags = new ReactiveVar([undefined]);
 
 Template.tagselector.helpers({
     columns() {
         // Need this many columns
-        return activeTags.get();
+        return columnTags.get();
     },
-    tags(columnIndex) {
-        return filteredTags(columnIndex, activeTags.get());
+    tagsInColumn(columnIndex) {
+        const activeTags = columnTags.get().slice(0, columnIndex);
+        return potentialNextTags(activeTags);
     },
     active(columnIndex) {
         if (this._id == selectedTagInColumn(columnIndex)) {
@@ -31,7 +34,7 @@ Template.tagselector.helpers({
         }
     },
     disabled(columnIndex) {
-        if (activeTags.get().length == columnIndex+1) {
+        if (columnTags.get().length == columnIndex + 1) {
             return "disabled";
         }
     }
@@ -52,18 +55,17 @@ Template.tagselector.events({
     }
 });
 
-function filteredTags(columnIndex, activeTagNames) {
-    if (columnIndex == 0) {
+function potentialNextTags(tagNames) {
+    if (tagNames.length == 0) {
         return Tags.find();
     }
 
     // Get notes with all tags previous to columnIndex
-    const tagNames = activeTagNames.slice(0, columnIndex); // Remove last element (always 'undefined')
     const notes = notesWithTags(tagNames);
     // Collect all tags from those notes
     const nextTagNames = new Set();
-    notes.forEach(function(note) {
-        note.tags.forEach(function(tag) {
+    notes.forEach(function (note) {
+        note.tags.forEach(function (tag) {
             nextTagNames.add(tag);
         });
     });
@@ -73,24 +75,24 @@ function filteredTags(columnIndex, activeTagNames) {
     })
     // Return a collection of Tags
     const tags = Array.from(nextTagNames);
-    return Tags.find({ _id: { $in : tags }});
+    return Tags.find({ _id: { $in: tags } });
 }
 
 function selectedTagInColumn(columnIndex) {
-    const tags = activeTags.get();
+    const tags = columnTags.get();
     const tag = tags[columnIndex];
     return tag;
 }
 
 function popTagsUpto(columnIndex) {
-    let tags = activeTags.get();
+    let tags = columnTags.get();
     tags = tags.slice(0, columnIndex);
     tags.push(undefined);
-    activeTags.set(tags);
+    columnTags.set(tags);
 }
 
 function pushTag(id) {
-    const tags = activeTags.get();
+    const tags = columnTags.get();
     tags.splice(tags.length - 1, 0, id);
-    activeTags.set(tags);
+    columnTags.set(tags);
 }

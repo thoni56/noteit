@@ -4,7 +4,7 @@
             <div class="col-xs-2 tags-column" id="tag-column-{{@index}}">
                 <div class="reset-tag-filter btn btn-info btn-xs {{disabled @index}}" id="reset-tag-{{@index}}">Any</div>
                 {{#let index=@index}}
-                    {{#each tags index}}
+                    {{#each tagsInColumn index}}
                         <a href="#" class="tag list-group-item {{active index}}">
                             {{name}}
                             <i class="pull-right edit-tag fa fa-pencil"></i>
