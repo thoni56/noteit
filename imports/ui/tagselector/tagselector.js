@@ -9,9 +9,9 @@ export function getActiveTags() {
     return tags;
 }
 
-// The activeTags always contain a last element which is undefined.
-// It means that there is no tag selected in that column, but since
-// that column needs to be present we need this extra element.
+// The activeTags always contain a last element which is undefined. This means
+// that there is no tag selected in that column, but since generating templates
+// for all visible column we use this extra element to provide the last column.
 const activeTags = new ReactiveVar([undefined]);
 
 Template.tagselector.helpers({
@@ -39,12 +39,12 @@ Template.tagselector.helpers({
 Template.tagselector.events({
     'click .tag'(event) {
         const columnIndex = Number(event.target.parentNode.id.slice('tag-column-'.length));
-        popTags(columnIndex);
+        popTagsUpto(columnIndex);
         pushTag(this._id);
     },
     'click .reset-tag-filter'(event) {
         const columnIndex = Number(event.target.id.slice('reset-tag-'.length));
-        popTags(columnIndex);
+        popTagsUpto(columnIndex);
     },
     'click .edit-tag'() {
         console.log("edit tag ", this._id);
@@ -57,7 +57,7 @@ function selectedTagInColumn(columnIndex) {
     return tag;
 }
 
-function popTags(columnIndex) {
+function popTagsUpto(columnIndex) {
     let tags = activeTags.get();
     tags = tags.slice(0, columnIndex);
     tags.push(undefined);
