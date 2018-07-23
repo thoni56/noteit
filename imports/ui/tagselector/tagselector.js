@@ -19,8 +19,8 @@ Template.tagselector.helpers({
         // Need this many columns
         return activeTags.get();
     },
-    tags() {
-        return Tags.find();
+    tags(columnIndex) {
+        return filteredTags(Tags.find(), columnIndex, activeTags.get());
     },
     active(columnIndex) {
         if (this._id == selectedTagInColumn(columnIndex)) {
@@ -46,10 +46,16 @@ Template.tagselector.events({
         const columnIndex = Number(event.target.id.slice('reset-tag-'.length));
         popTagsUpto(columnIndex);
     },
-    'click .edit-tag'() {
+    'click .edit-tag'(event) {
         console.log("edit tag ", this._id);
     }
 });
+
+function filteredTags(tags, columnIndex, activeTags) {
+    const tag = activeTags[0];
+    const notes = notesWithTag(tag);
+    return tags;
+}
 
 function selectedTagInColumn(columnIndex) {
     const tags = activeTags.get();
