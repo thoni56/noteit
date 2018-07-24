@@ -95,10 +95,12 @@ Template.editor.events({
                         Tags.insert({name: tagname});
                         tag = Tags.findOne({name: tagname});
                         addTag(tag, event.target);
+                        event.target.reset();
                     }
                 })
             } else {
                 addTag(tag, event.target);
+                event.target.reset();
             }
         }
     },
@@ -127,7 +129,6 @@ function addTag(tag, form) {
         tagsArray.push(tag._id);
         tags.set(tagsArray);
         tagsField.value = '';
-        form.reset();
         Notes.update(currentNote, {
             $set: { tags: tagsArray }
         });
