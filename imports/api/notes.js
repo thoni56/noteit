@@ -26,5 +26,16 @@ export function tagsForNote(noteId) {
     } else {
         return [];
     }
+}
 
+export function addTagToNote(tag, note) {
+    const tagsArray = tags.get();
+    if (!tagsArray.includes(tag._id)) {
+        tagsArray.push(tag._id);
+        tags.set(tagsArray);
+        tagsField.value = '';
+        Notes.update(note, {
+            $set: { tags: tagsArray }
+        });
+    }
 }

@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
-import { Notes, tagsForNote } from '../../api/notes.js';
+import { Notes, tagsForNote, addTagToNote } from '../../api/notes.js';
 import { Tags } from '../../api/tags.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
@@ -95,12 +95,12 @@ Template.editor.events({
                     if (ok) {
                         Tags.insert({name: tagname});
                         tag = Tags.findOne({name: tagname});
-                        addTag(tag);
+                        addTagToNote(tag, currentNote);
                         tagform.reset();
                     }
                 })
             } else {
-                addTag(tag);
+                addTagToNote(tag, currentNote);
                 tagform.reset();
             }
         }
@@ -121,24 +121,12 @@ Template.editor.events({
         if (event.detail === 0) {
             return;     // Not an actual click, but a click generate by enter in the title field
         }
-        
+
         Notes.remove(currentNote);
         resetEditor();
         setActive(undefined);
     }
 });
-
-function addTag(tag) {
-    const tagsArray = tags.get();
-    if (!tagsArray.includes(tag._id)) {
-        tagsArray.push(tag._id);
-        tags.set(tagsArray);
-        tagsField.value = '';
-        Notes.update(currentNote, {
-            $set: { tags: tagsArray }
-        });
-    }
-}
 
 function editingExistingNote() {
     return currentNote && Notes.find({_id:currentNote}).count();
