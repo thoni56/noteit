@@ -118,6 +118,10 @@ Template.editor.events({
     },
 
     'click .delete-note'(event) {
+        if (event.detail === 0) {
+            return;     // Not an actual click, but a click generate by enter in the title field
+        }
+        
         Notes.remove(currentNote);
         resetEditor();
         setActive(undefined);
