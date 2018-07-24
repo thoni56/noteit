@@ -80,8 +80,9 @@ Template.editor.events({
     'submit .edit-tags-form'(event) {
         event.preventDefault();
         if (currentNote) {
-            let tagname = tagsField.value.trim();
+            const tagname = tagsField.value.trim();
             let tag = Tags.findOne({name: tagname});
+            const tagform = event.target;
             if (!tag) {
                 new Confirmation({
                     message: "Do you want to create the new tag '"+tagname+"' ?",
@@ -94,13 +95,13 @@ Template.editor.events({
                     if (ok) {
                         Tags.insert({name: tagname});
                         tag = Tags.findOne({name: tagname});
-                        addTag(tag, event.target);
-                        event.target.reset();
+                        addTag(tag);
+                        tagform.reset();
                     }
                 })
             } else {
-                addTag(tag, event.target);
-                event.target.reset();
+                addTag(tag);
+                tagform.reset();
             }
         }
     },
@@ -123,7 +124,7 @@ Template.editor.events({
     }
 });
 
-function addTag(tag, form) {
+function addTag(tag) {
     const tagsArray = tags.get();
     if (!tagsArray.includes(tag._id)) {
         tagsArray.push(tag._id);
