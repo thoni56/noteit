@@ -85,8 +85,8 @@ Template.editor.events({
                     if (ok) {
                         Tags.insert({name: tagname, owner: Meteor.userId()});
                         tag = Tags.findOne({name: tagname});
-                        addTagToNote(tag, currentNoteId);
-                        tags.set(tagsForNote(currentNoteId));
+                        addTagToNote(tag, currentNote.get());
+                        tags.set(tagsForNote(currentNote.get()));
                         tagform.reset();
                     }
                 })
@@ -119,6 +119,18 @@ Template.editor.events({
         setActive(undefined);
     }
 });
+
+function addTag(tag, note) {
+    const tagsArray = tags.get();
+    if (!tagsArray.includes(tag._id)) {
+        tagsArray.push(tag._id);
+        tags.set(tagsArray);
+        tagsField.value = '';
+        Notes.update(note._id, {
+            $set: { tags: tagsArray }
+        });
+    }
+}
 
 function editingExistingNote() {
     return currentNoteId.get() && getNote(currentNoteId.get());
