@@ -24,7 +24,7 @@ Template.tagselector.helpers({
     },
     tagsInColumn(columnIndex) {
         if (columnIndex >= columnTags.get().length) {
-            // column is being removed, but reactively redrawn until it is
+            // column is being removed, but might still be reactively redrawn until it is
             return [];
         }
 
