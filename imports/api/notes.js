@@ -10,7 +10,7 @@ export function notesWithTags(tags, sorting) {
     if (tags.length == 0) {
         return Notes.find({}, { sort: sorting });
     } else {
-        return Notes.find({ tags: { $all: tags } }, { sort: { sorting } });
+        return Notes.find({ tags: { $all: tags } }, { sort: sorting });
     }
 }
 
