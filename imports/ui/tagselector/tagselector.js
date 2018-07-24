@@ -23,6 +23,11 @@ Template.tagselector.helpers({
         return columnTags.get();
     },
     tagsInColumn(columnIndex) {
+        if (columnIndex >= columnTags.get().length) {
+            // column is being removed, but reactively redrawn until it is
+            return [];
+        }
+
         const activeTags = columnTags.get().slice(0, columnIndex);
         return potentialNextTags(activeTags);
     },
