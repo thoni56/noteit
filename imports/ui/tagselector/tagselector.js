@@ -47,18 +47,22 @@ Template.tagselector.helpers({
 
 Template.tagselector.events({
     'click .tag'(event) {
-        const columnIndex = Number(event.target.parentNode.id.slice('tag-column-'.length));
+        const columnIndex = columnIndexFromElement(event.target, 'tag-column-');
         popTagsUpto(columnIndex);
         pushTag(this._id);
     },
     'click .reset-tag-filter'(event) {
-        const columnIndex = Number(event.target.id.slice('reset-tag-'.length));
+        const columnIndex = columnIndexFromElement(event.target, 'reset-tag-');
         popTagsUpto(columnIndex);
     },
     'click .edit-tag'(event) {
         console.log("edit tag ", this._id);
     }
 });
+
+function columnIndexFromElement(node, prefix) {
+    return Number(node.parentNode.id.slice(prefix.length));
+}
 
 function potentialNextTags(tagNames) {
     if (tagNames.length == 0) {
