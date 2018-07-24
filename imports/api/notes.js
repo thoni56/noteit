@@ -2,11 +2,15 @@ import { Mongo } from 'meteor/mongo';
 
 export const Notes = new Mongo.Collection('Notes');
 
-export function notesWithTags(tags) {
+export function notesWithTags(tags, sorting) {
+    if (!sorting) {
+        sorting = { createdAt: -1 };
+    }
+
     if (tags.length == 0) {
-        return Notes.find({}, { sort: { createdAt: -1 } });
+        return Notes.find({}, { sort: sorting });
     } else {
-        return Notes.find({ tags: { $all: tags } }, { sort: { createdAt: -1 } });
+        return Notes.find({ tags: { $all: tags } }, { sort: { sorting } });
     }
 }
 
