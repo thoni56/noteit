@@ -10,6 +10,10 @@ export function notesWithTags(tags) {
     }
 }
 
+export function allNotes() {
+    return Notes.find({});
+}
+
 export function tagsForNote(noteId) {
     // Abstraction for relation between tags and notes
     const note = Notes.findOne({ _id: noteId });

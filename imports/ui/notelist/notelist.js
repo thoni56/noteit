@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating';
-import { Notes, notesWithTags } from '../../api/notes.js';
+import { allNotes, notesWithTags } from '../../api/notes.js';
 import { getActiveTags } from '../tagselector/tagselector.js';
 
 import './notelist.html';
@@ -22,5 +22,5 @@ function filteredCount() {
 };
 
 function totalCount() {
-    return Notes.find({}).count();
+    return allNotes().count();
 };
