@@ -8,4 +8,15 @@ Tagselector:
   ✔ Highlight only the tag corresponding to column @done(18-07-22 13:03)
   ✔ Find tags depending on tags on notes filtered by previous columns @done(18-07-22 13:04)
   ✔ Handle a new selection in a previous column @done(18-07-22 14:13)
-  ☐ Find tags that filtered notes has which are not alredy in tag set
+  ✔ Find tags that filtered notes has which are not alredy in tag set @done(18-07-24 08:37)
+  ☐ Remove tag
+  ☐ Rename tag (no duplicates!)
+
+Editor:
+  ☐ Ask for title if trying to save without (+ or switch to other)
+  ☐ Remove tag from note
+
+Notelist:
+  ☐ Sort by createdDate ("-> Today", "Today ->", unsorted)
+  ☐ Sort by modifiedDate ("-> Today", "Today ->", unsorted)
+  ☐ Sort by createdDate ("A ->", "-> A", unsorted)
