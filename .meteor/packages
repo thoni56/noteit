@@ -24,6 +24,5 @@ octahex:simplemde
 twbs:bootstrap
 templates:array
 matdutour:popup-confirm
-practicalmeteor:mocha
 accounts-ui
 accounts-password
