@@ -14,8 +14,8 @@ Tagselector:
 
 Editor:
   ✔ Move + (create note) to Editor heading (maybe?) @done(18-07-24 21:16)
-  ☐ Ask for title if trying to save without (+ or switch to other)
   ☐ Remove tag from note
+  ☐ Ask for title if trying to save without (+ or switch to other)
 
 Notelist:
   ✔ Sort by createdDate ("-> Today", "Today ->", unsorted) @done(18-07-24 21:02)

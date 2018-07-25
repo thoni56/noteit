@@ -1,3 +1,4 @@
+import '../imports/startup/accounts-config.js';
 import '../imports/ui/body.js';
 import '../imports/ui/editor/editor.js';
 import '../imports/ui/editor/notetag.js';
