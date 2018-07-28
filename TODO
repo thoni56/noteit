@@ -22,3 +22,15 @@ Notelist:
   ✔ Sort by modifiedDate ("-> Today", "Today ->", unsorted) @done(18-07-24 21:02)
   ✔ Sort by title ("A ->", "-> A", unsorted) @started(18-07-24 18:08) @done(18-07-24 21:02) @lasted(2h54m30s)
   ☐ Show dates for notes
+  ☐ Filter on range of dates
+
+Administration:
+  ☐ Export
+  ☐ Import
+  ☐ User account
+    ✔ Log in @done(18-07-28 21:38)
+    ☐ Create notes with owner identification
+    ☐ Only show users notes
+  ☐ Guest account
+    ☐ "Continue as guest" gives random user id
+    ☐ Guest id saved in cookie
