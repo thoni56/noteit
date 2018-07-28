@@ -1,6 +1,9 @@
+/* eslint-env mocha */
+ 
 import { Meteor } from 'meteor/meteor';
 import { expect } from 'chai';
 import { notesWithTags } from './notes';
+
 
 if (Meteor.isServer) {
     describe("the server", function () {
@@ -9,13 +12,6 @@ if (Meteor.isServer) {
             const notes = notesWithTags([]);
 
             expect(notes.count()).to.equal(0);
+        })
     });
-})
-};
-
-if (Meteor.isClient) {
-    describe("the client", function () {
-        it("you cannot pass", function () {
-        });
-    })
 };
