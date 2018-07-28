@@ -1,11 +1,21 @@
-import { Meteor } from Meteor;
-import assert from "assert";
+import { Meteor } from 'meteor/meteor';
+import { expect } from 'chai';
+import { notesWithTags } from './notes';
 
 if (Meteor.isServer) {
-    describe("noteit", function () {
-        // deliberate error to see if 'meteor picks it up'
-        it(fails a test", function () {
-            assert.fail("message");
+    describe("the server", function () {
+        it("finds no notes initially", function () {
+
+            const notes = notesWithTags([]);
+
+            expect(notes.count()).to.equal(0);
+    });
+})
+};
+
+if (Meteor.isClient) {
+    describe("the client", function () {
+        it("you cannot pass", function () {
         });
-    }
-});
+    })
+};
