@@ -13,7 +13,7 @@ Tagselector:
   ☐ Rename tag (no duplicates!)
 
 Editor:
-  ✔ Move + (create note) to Editor heading (maybe?) @done(18-07-24 21:16)
+  ✔ Move + (create note) to Editor heading @done(18-07-24 21:16)
   ☐ Remove tag from note
   ☐ Ask for title if trying to save without (+ or switch to other)
 
@@ -24,11 +24,22 @@ Notelist:
   ☐ Show dates for notes
   ☐ Filter on range of dates
 
+Areas:
+  ☐ Create area
+  ☐ Show only notes for selected area
+
 Administration:
   ☐ Export
+    ☐ CSV
+    ☐ Json
+    ☐ PDF
+    ☐ Current selected area
+    ☐ All areas
   ☐ Import
+    ☐ CSV
+    ☐ Json
   ☐ User account
-    ✔ Log in @done(18-07-28 21:38)
+    ☐ Log in @started(18-07-29 12:19)
     ☐ Create notes with owner identification
     ☐ Only show users notes
   ☐ Guest account
