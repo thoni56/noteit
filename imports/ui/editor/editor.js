@@ -37,6 +37,7 @@ export function save() {
         if (!editingExistingNote()) {
             // Insert the note in the collection
             currentNote = Notes.insert({
+                owner: Meteor.userId(),
                 title: title,
                 content: editor.value(),
                 createdAt: new Date(),
@@ -96,11 +97,13 @@ Template.editor.events({
                         Tags.insert({name: tagname});
                         tag = Tags.findOne({name: tagname});
                         addTagToNote(tag, currentNote);
+                        tags.set(tagsForNote(currentNote));
                         tagform.reset();
                     }
                 })
             } else {
                 addTagToNote(tag, currentNote);
+                tags.set(tagsForNote(currentNote));
                 tagform.reset();
             }
         }
