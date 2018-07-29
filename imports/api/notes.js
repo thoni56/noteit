@@ -37,3 +37,13 @@ export function addTagToNote(tag, note) {
         });
     }
 }
+
+export function createNote(title, content) {
+    const noteId = Notes.insert({
+        owner: Meteor.userId(),
+        title: title,
+        content: content,
+        createdAt: new Date(),
+    });
+    return noteId;
+}

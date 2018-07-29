@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
-import { Notes, tagsForNote, addTagToNote } from '../../api/notes.js';
+import { Notes, createNote, tagsForNote, addTagToNote } from '../../api/notes.js';
 import { Tags } from '../../api/tags.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
@@ -35,13 +35,7 @@ export function save() {
  
     if (!editorIsEmpty(title)) {
         if (!editingExistingNote()) {
-            // Insert the note in the collection
-            currentNote = Notes.insert({
-                owner: Meteor.userId(),
-                title: title,
-                content: editor.value(),
-                createdAt: new Date(),
-            });
+            currentNote = createNote(title, editor.value());
             resetTags();
         } else {
             Notes.update(currentNote, {
