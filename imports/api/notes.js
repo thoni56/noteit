@@ -51,3 +51,13 @@ export function createNote(title, content) {
 export function deleteNote(noteId) {
     Notes.remove(noteId);
 }
+
+export function updateNote(noteId, title, content) {
+    Notes.update(noteId, {
+        $set: {
+        title: title,
+            content: content,
+            modifiedAt: new Date(),
+        },
+    });
+}

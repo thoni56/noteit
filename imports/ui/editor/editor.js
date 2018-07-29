@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
-import { Notes, createNote, deleteNote, tagsForNote, addTagToNote } from '../../api/notes.js';
+import { Notes, createNote, deleteNote, updateNote, tagsForNote, addTagToNote } from '../../api/notes.js';
 import { Tags } from '../../api/tags.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
@@ -38,12 +38,7 @@ export function save() {
             currentNote = createNote(title, editor.value());
             resetTags();
         } else {
-            Notes.update(currentNote, {
-                $set: { title: title,
-                        content: editor.value(),
-                        modifiedAt: new Date(),
-                },
-            });
+            updateNote(currentNote, title, editor.value());
         }
     }
 }
@@ -124,7 +119,6 @@ Template.editor.events({
         setActive(undefined);
     }
 });
-
 
 function editingExistingNote() {
     return currentNote && Notes.find({_id:currentNote}).count();
