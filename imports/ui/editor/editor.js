@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
-import { Notes, createNote, deleteNote, updateNote, tagsForNote, addTagToNote } from '../../api/notes.js';
+import { createNote, getNote, deleteNote, updateNote, tagsForNote, addTagToNote } from '../../api/notes.js';
 import { Tags } from '../../api/tags.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
@@ -19,7 +19,7 @@ var tags = ReactiveVar([]);
 export function load(noteId) {
     save();
     currentNote = noteId;
-    var note = Notes.findOne({_id: noteId});
+    const note = getNote(noteId);
     titleField.value = note.title;
     if (note.content === null) {
         editor.value("");
@@ -121,7 +121,7 @@ Template.editor.events({
 });
 
 function editingExistingNote() {
-    return currentNote && Notes.find({_id:currentNote}).count();
+    return currentNote && getNote(currentNote);
 }
 
 function editorIsEmpty(title) {

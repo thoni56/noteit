@@ -61,3 +61,7 @@ export function updateNote(noteId, title, content) {
         },
     });
 }
+
+export function getNote(noteId) {
+    return Notes.findOne({_id: noteId});
+}
