@@ -47,3 +47,7 @@ export function createNote(title, content) {
     });
     return noteId;
 }
+
+export function deleteNote(noteId) {
+    Notes.remove(noteId);
+}

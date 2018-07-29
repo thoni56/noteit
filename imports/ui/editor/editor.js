@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
-import { Notes, createNote, tagsForNote, addTagToNote } from '../../api/notes.js';
+import { Notes, createNote, deleteNote, tagsForNote, addTagToNote } from '../../api/notes.js';
 import { Tags } from '../../api/tags.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
@@ -119,11 +119,12 @@ Template.editor.events({
             return;     // Not an actual click, but a click generate by enter in the title field
         }
 
-        Notes.remove(currentNote);
+        deleteNote(currentNote);
         resetEditor();
         setActive(undefined);
     }
 });
+
 
 function editingExistingNote() {
     return currentNote && Notes.find({_id:currentNote}).count();
