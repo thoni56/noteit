@@ -9,7 +9,7 @@ import { setActive } from '../notelist/note.js';
 import './editor.html';
 
 export var editor;
-export var currentNote = new ReactiveVar(null);
+export var currentNoteId = new ReactiveVar(null);
 
 var tagsField;
 var titleField;
@@ -18,7 +18,7 @@ var tags = ReactiveVar([]);
 
 export function load(noteId) {
     save();
-    currentNote = noteId;
+    currentNoteId.set(noteId);
     const note = getNote(noteId);
     titleField.value = note.title;
     if (note.content === null) {
@@ -35,10 +35,10 @@ export function save() {
  
     if (!editorIsEmpty(title)) {
         if (!editingExistingNote()) {
-            currentNote = createNote(title, editor.value());
+            currentNoteId.set(createNote(title, editor.value()));
             resetTags();
         } else {
-            updateNote(currentNote, title, editor.value());
+            updateNote(currentNoteId.get(), title, editor.value());
         }
     }
 }
@@ -69,7 +69,7 @@ Template.editor.events({
 
     'submit .edit-tags-form'(event) {
         event.preventDefault();
-        if (currentNote) {
+        if (currentNoteId.get()) {
             const tagname = tagsField.value.trim();
             let tag = Tags.findOne({name: tagname});
             const tagform = event.target;
@@ -83,16 +83,16 @@ Template.editor.events({
                     focus: "cancel"
                 }, function (ok) {
                     if (ok) {
-                        Tags.insert({name: tagname});
+                        Tags.insert({name: tagname, owner: Meteor.userId()});
                         tag = Tags.findOne({name: tagname});
-                        addTagToNote(tag, currentNote);
-                        tags.set(tagsForNote(currentNote));
+                        addTagToNote(tag, currentNoteId);
+                        tags.set(tagsForNote(currentNoteId));
                         tagform.reset();
                     }
                 })
             } else {
-                addTagToNote(tag, currentNote);
-                tags.set(tagsForNote(currentNote));
+                addTagToNote(tag, currentNoteId.get());
+                tags.set(tagsForNote(currentNoteId.get()));
                 tagform.reset();
             }
         }
@@ -114,14 +114,14 @@ Template.editor.events({
             return;     // Not an actual click, but a click generate by enter in the title field
         }
 
-        deleteNote(currentNote);
+        deleteNote(currentNoteId);
         resetEditor();
         setActive(undefined);
     }
 });
 
 function editingExistingNote() {
-    return currentNote && getNote(currentNote);
+    return currentNoteId.get() && getNote(currentNoteId.get());
 }
 
 function editorIsEmpty(title) {
@@ -129,7 +129,7 @@ function editorIsEmpty(title) {
 }
 
 function resetEditor() {
-    currentNote = null;
+    currentNoteId = null;
     resetTitle();
     resetContent();
     resetTags();
