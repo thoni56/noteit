@@ -120,18 +120,6 @@ Template.editor.events({
     }
 });
 
-function addTag(tag, note) {
-    const tagsArray = tags.get();
-    if (!tagsArray.includes(tag._id)) {
-        tagsArray.push(tag._id);
-        tags.set(tagsArray);
-        tagsField.value = '';
-        Notes.update(note._id, {
-            $set: { tags: tagsArray }
-        });
-    }
-}
-
 function editingExistingNote() {
     return currentNoteId.get() && getNote(currentNoteId.get());
 }
