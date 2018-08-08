@@ -58,7 +58,7 @@ if (Meteor.isServer) {
             expect(serializedNotes).to.have.length(2);
         }),
 
-        it("only retains title, content (should also retain tags and dates)", function () {
+        it("only retains title, content and tags (should also dates)", function () {
             Tags.insert( { id: 1, name: "tag1"});
             Tags.insert( { id: 2, name: "tag2"});
             Notes.insert({ id: "dal", title: "Title", content: "Content", tags: [1, 2] } );
@@ -68,7 +68,7 @@ if (Meteor.isServer) {
             expect(serializedNote).to.not.have.property('id');
             expect(serializedNote).to.have.property('title', "Title");
             expect(serializedNote).to.have.property('content', "Content");
-            // expect(serializedNote).to.have.property('tags', "tag1,tag2");
+            expect(serializedNote).to.have.property('tags', "tag1,tag2");
         })
     })
 };

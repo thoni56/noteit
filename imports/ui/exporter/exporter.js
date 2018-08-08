@@ -1,10 +1,11 @@
-import { Notes, allNotes } from '../../api/notes';
+import { allNotes } from '../../api/notes';
+import { Tags } from '../../api/tags';
 
 export function serializeNotes() {
-    const notes = Notes.find({}).fetch();
+    const notes = allNotes().fetch();
 
     const serializedNotes = notes.map(function(note) {
-        return { title: note.title, content: note.content };
+        return { title: note.title, content: note.content, tags: serializeTags(note.tags) };
     })
     return serializedNotes;
 }
@@ -39,4 +40,14 @@ export function convertSerializedNotesToCSV(notes) {
     });
 
     return result;
+}
+
+function serializeTags(tagIds) {
+    if (!tagIds) return "";
+
+    const tagNames = tagIds.map(function (tagId) {
+        tag = Tags.findOne({ id: tagId });
+        return tag.name;
+    })
+    return tagNames.join();
 }
