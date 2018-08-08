@@ -2,11 +2,12 @@
   "name": "noteit",
   "private": true,
   "scripts": {
-    "start": "meteor run",
-    "test": "meteor test --once --driver-package meteortesting:mocha",
-    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --extra-packages bundle-visualizer",
-    "debug": "meteor run --inspect"
+    "start": "meteor run --inspect",
+    "debug": "meteor run --inspect",
+    "test": "meteor test --inspect --driver-package cultofcoders:mocha --port 3010",
+    "test-debug": "meteor test --inspect --driver-package cultofcoders:mocha --port 3010",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package cultofcoders:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.54",

@@ -15,8 +15,27 @@
             "runtimeExecutable": "npm",
             "runtimeArgs": ["run", "debug"],
             "port": 9229,
-            "timeout": 30000
-        }
+            "timeout": 90000
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Meteor: Client Tests",
+            "url": "http://localhost:3010",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Meteor: Server Tests",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+              "run",
+              "test-debug"
+            ],
+            "port": 9229,
+            "timeout": 90000
+          }
     ],
     "compounds": [
         {
