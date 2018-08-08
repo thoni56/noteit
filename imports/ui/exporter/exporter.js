@@ -1,7 +1,7 @@
 import { allNotes } from '../../api/notes';
 import { Tags } from '../../api/tags';
 
-export function serializeNotes() {
+export function serializeAllNotes() {
     const notes = allNotes().fetch();
 
     const serializedNotes = notes.map(function(note) {
@@ -46,8 +46,8 @@ function serializeTags(tagIds) {
     if (!tagIds) return "";
 
     const tagNames = tagIds.map(function (tagId) {
-        tag = Tags.findOne({ id: tagId });
-        return tag.name;
-    })
+        tag = Tags.findOne({ _id: tagId });
+        return tag?tag.name:"";
+    }).filter(element => element);
     return tagNames.join();
 }

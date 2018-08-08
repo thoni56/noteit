@@ -4,7 +4,7 @@ import { Tags } from '../../api/tags';
 import { expect } from 'chai';
 import StubCollections from 'meteor/hwillson:stub-collections'; 
 import { convertSerializedNotesToCSV } from './exporter';
-import { serializeNotes } from './exporter';
+import { serializeAllNotes } from './exporter';
 
 
 if (Meteor.isServer) {
@@ -41,12 +41,12 @@ if (Meteor.isServer) {
         })
 
         it("serialized no notes to an empty array", function () {
-            expect(serializeNotes()).to.have.length(0);
+            expect(serializeAllNotes()).to.have.length(0);
         }),
 
         it("serializes a single note to an array of one element", function () {
             Notes.insert( { title: "Title" });
-            const serializedNotes = serializeNotes();
+            const serializedNotes = serializeAllNotes();
             expect(serializedNotes).to.have.length(1);
             expect(serializedNotes[0]).to.have.property('title', "Title");
         }),
@@ -54,7 +54,7 @@ if (Meteor.isServer) {
         it("serializes two notes to an array of two elements", function () {
             Notes.insert( { title: "Title1" });
             Notes.insert( { title: "Title2" });
-            const serializedNotes = serializeNotes();
+            const serializedNotes = serializeAllNotes();
             expect(serializedNotes).to.have.length(2);
         }),
 
@@ -62,7 +62,7 @@ if (Meteor.isServer) {
             Tags.insert( { id: 1, name: "tag1"});
             Tags.insert( { id: 2, name: "tag2"});
             Notes.insert({ id: "dal", title: "Title", content: "Content", tags: [1, 2] } );
-            const serializedNotes = serializeNotes();
+            const serializedNotes = serializeAllNotes();
             expect(serializedNotes).to.have.length(1);
             const serializedNote = serializedNotes[0];
             expect(serializedNote).to.not.have.property('id');
