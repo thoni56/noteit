@@ -23,8 +23,8 @@ octahex:simplemde
 twbs:bootstrap
 templates:array
 matdutour:popup-confirm
-accounts-ui
-accounts-password
+accounts-ui@1.3.0
+accounts-password@1.5.1
 cultofcoders:mocha
 msavin:mongol
 hwillson:stub-collections
