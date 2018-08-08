@@ -26,11 +26,13 @@ Notelist:
 
 Areas:
   ☐ Create area
+  ☐ Select area
   ☐ Show only notes for selected area
+  ☐ Delete area (including all notes and tags)
 
 Administration:
   ☐ Export
-    ☐ CSV
+    ☐ CSV @started(18-08-08 10:22)
     ☐ Json
     ☐ PDF
     ☐ Current selected area
