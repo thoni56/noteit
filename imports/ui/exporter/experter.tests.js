@@ -58,7 +58,7 @@ if (Meteor.isServer) {
             expect(serializedNotes).to.have.length(2);
         }),
 
-        it("only retains title, content and tags (should also dates)", function () {
+        it("only retains title, content and tags (should also retain dates)", function () {
             Tags.insert( { id: 1, name: "tag1"});
             Tags.insert( { id: 2, name: "tag2"});
             Notes.insert({ id: "dal", title: "Title", content: "Content", tags: [1, 2] } );
