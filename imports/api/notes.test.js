@@ -2,7 +2,7 @@
  
 import { Meteor } from 'meteor/meteor';
 import { expect } from 'chai';
-import { notesWithTags } from './notes';
+import { notesWithTags, createNote, Notes } from './notes';
 
 
 if (Meteor.isServer) {
@@ -13,5 +13,15 @@ if (Meteor.isServer) {
 
             expect(notes.count()).to.equal(0);
         })
-    });
+    })
 };
+
+if (Meteor.isClient){
+    describe("notes on the client", function () {
+        it("creates notes with userId", function (){
+            const id = createNote();
+            const note = Notes.findOne({_id: id});
+            expect(note).to.have.property("owner");
+        })
+    })
+} 
