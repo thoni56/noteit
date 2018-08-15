@@ -59,9 +59,9 @@ if (Meteor.isServer) {
         }),
 
         it("only retains title, content and tags (should also retain dates)", function () {
-            Tags.insert( { _id: 1, name: "tag1"});
-            Tags.insert( { _id: 2, name: "tag2"});
-            Notes.insert({ _id: "sdkfj", title: "Title", content: "Content", tags: [1, 2] } );
+            Tags.insert( { _id: "1", name: "tag1"});
+            Tags.insert( { _id: "2", name: "tag2"});
+            Notes.insert({ _id: "sdkfj", title: "Title", content: "Content", tags: ["1", "2"] } );
             const serializedNotes = serializeAllNotes();
             expect(serializedNotes).to.have.length(1);
             const serializedNote = serializedNotes[0];
