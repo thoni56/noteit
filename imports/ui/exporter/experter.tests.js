@@ -13,7 +13,7 @@ if (Meteor.isServer) {
             let notes = [];
             expect(convertSerializedNotesToCSV(notes).length).to.equal(0);
         }),
-        it("returns a line with the title in quotes it", function () {
+        it("returns a line with the title in quotes", function () {
             let notes = [{title: "Title"}];
             expect(convertSerializedNotesToCSV(notes)).to.contain('"Title"');
         }),
@@ -38,7 +38,7 @@ if (Meteor.isServer) {
             Notes.remove({});
             Tags.remove({});
             StubCollections.restore();
-        })
+        });
 
         it("serialized no notes to an empty array", function () {
             expect(serializeAllNotes()).to.have.length(0);
