@@ -42,8 +42,8 @@ Administration:
     ☐ Json
   ☐ User account
     ✔ Log in @started(18-07-29 12:19) @done(18-07-29 14:07) @lasted(1h48m21s)
-    ☐ Create notes with owner identification @started(18-07-29 14:11)
-    ☐ Create tag with owner identification
+    ✔ Create notes with owner identification @started(18-07-29 14:11) @done(18-08-17 20:30) @lasted(2w5d6h19m16s)
+    ✔ Create tag with owner identification @done(18-08-17 20:30)
     ☐ Only show users notes and tags
   ☐ Guest account
     ☐ "Continue as guest" gives random user id
