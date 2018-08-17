@@ -44,7 +44,7 @@ Administration:
     ✔ Log in @started(18-07-29 12:19) @done(18-07-29 14:07) @lasted(1h48m21s)
     ☐ Create notes with owner identification @started(18-07-29 14:11)
     ☐ Create tag with owner identification
-    ☐ Only show users notes
+    ☐ Only show users notes and tags
   ☐ Guest account
     ☐ "Continue as guest" gives random user id
     ☐ Guest id saved in cookie
