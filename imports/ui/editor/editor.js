@@ -129,7 +129,7 @@ function editorIsEmpty(title) {
 }
 
 function resetEditor() {
-    currentNoteId = null;
+    currentNoteId.set(null);
     resetTitle();
     resetContent();
     resetTags();
