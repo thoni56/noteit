@@ -85,8 +85,8 @@ Template.editor.events({
                     if (ok) {
                         Tags.insert({name: tagname, owner: Meteor.userId()});
                         tag = Tags.findOne({name: tagname});
-                        addTagToNote(tag, currentNote.get());
-                        tags.set(tagsForNote(currentNote.get()));
+                        addTagToNote(tag, currentNoteId.get());
+                        tags.set(tagsForNote(currentNoteId.get()));
                         tagform.reset();
                     }
                 })
