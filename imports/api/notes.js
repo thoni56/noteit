@@ -49,7 +49,7 @@ export function createNote(title, content) {
 }
 
 export function deleteNote(noteId) {
-    Notes.remove(noteId.fetch);
+    Notes.remove(noteId);
 }
 
 export function updateNote(noteId, title, content) {

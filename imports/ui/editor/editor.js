@@ -114,7 +114,7 @@ Template.editor.events({
             return;     // Not an actual click, but a click generate by enter in the title field
         }
 
-        deleteNote(currentNoteId);
+        deleteNote(currentNoteId.get());
         resetEditor();
         setActive(undefined);
     }
