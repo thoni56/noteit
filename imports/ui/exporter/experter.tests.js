@@ -9,9 +9,9 @@ import { serializeAllNotes } from './exporter';
 
 if (Meteor.isServer) {
     describe("CSV converter", function () {
-        it("returns an empty string for no notes", function () {
+        it("returns only headers for no notes", function () {
             let notes = [];
-            expect(convertSerializedNotesToCSV(notes).length).to.equal(0);
+            expect(convertSerializedNotesToCSV(notes)).to.equal("title,content,tags\n");
         }),
         it("returns a line with the title in quotes", function () {
             let notes = [{title: "Title"}];

@@ -13,10 +13,6 @@ export function serializeAllNotes() {
 export function convertSerializedNotesToCSV(notes) {  
     var result, first, keys, columnDelimiter, lineDelimiter;
 
-    if (notes == null || !notes.length) {
-        return "";
-    }
-
     columnDelimiter = ',';
     lineDelimiter = '\n';
 
@@ -25,9 +21,9 @@ export function convertSerializedNotesToCSV(notes) {
     result = '';
 
     // Header
-    //  result += keys.join(columnDelimiter);
-    //  result += lineDelimiter;
+    result += keys.join() + lineDelimiter;
 
+    // Data
     notes.forEach(function(note) {
         first = true;
         keys.forEach(function(key) {
