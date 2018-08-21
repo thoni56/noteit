@@ -13,7 +13,8 @@
             "request": "launch",
             "name": "Meteor: Chrome",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "timeout": 20000
         },
         {
             "type": "node",
