@@ -23,16 +23,21 @@ if (Meteor.isServer) {
     });
     
     describe("CSV importer", function () {
+        const header = "title,content\n";
         it("creates no documents for empty string", function () {
             csvImporter("");
             expect(Notes.find().count()).to.equal(0);
         }),
+        it("creates no documents for only header line", function () {
+            csvImporter(header);
+            expect(Notes.find().count()).to.equal(0);
+        }),
         it("creates one document for one line", function () {
-            csvImporter("A Title");
+            csvImporter(header+"A Title,content");
             expect(Notes.find().count()).to.equal(1);
         }),
         it("creates document with title", function () {
-            csvImporter("A Title");
+            csvImporter(header+"A Title");
             const note = Notes.findOne();
             expect(note.title).to.equal("A Title");
         })
