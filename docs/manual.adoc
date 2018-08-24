@@ -1,0 +1,8 @@
+= User Manual for NoteIt =
+
+NoteIt is a unique note taking application. Where other applications require you to create the structure of your notes, NoteIt helps you uncover the inherent structure!
+
+By simply tagging your notes you will be able to navigate all your notes through the structure that you uncounciously created.
+
+Less work, more discovery!
+
