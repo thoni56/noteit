@@ -32,13 +32,13 @@ Areas:
 
 Administration:
   ☐ Export
-    ☐ CSV @started(18-08-08 10:22)
+    ✔ CSV @started(18-08-08 10:22) @done(18-08-24 22:32) @lasted(2w2d12h10m57s)
     ☐ Json
     ☐ PDF
     ☐ Current selected area
     ☐ All areas
   ☐ Import
-    ☐ CSV
+    ☐ CSV @started(18-08-24 22:33)
     ☐ Json
   ☐ User account
     ✔ Log in @started(18-07-29 12:19) @done(18-07-29 14:07) @lasted(1h48m21s)
