@@ -48,6 +48,7 @@
             "name": "Meteor: Client Tests",
             "url": "http://localhost:3010",
             "webRoot": "${workspaceFolder}",
+            "timeout": 30000
         }
     ],
     "compounds": [
