@@ -23,7 +23,7 @@ if (Meteor.isServer) {
     });
     
     describe("CSV importer", function () {
-        const header = "title,content\n";
+        const header = "title,content, tags\n";
         it("creates no documents for empty string", function () {
             csvImporter("");
             expect(Notes.find().count()).to.equal(0);
@@ -35,6 +35,14 @@ if (Meteor.isServer) {
         it("creates one document for one line", function () {
             csvImporter(header+"A Title,content");
             expect(Notes.find().count()).to.equal(1);
+        }),
+        it("creates three document for three line", function () {
+            const lines = ["A Title,content",
+                            "Another title,with more content",
+                            "Last title,and last content"
+                        ];
+            csvImporter(header+lines.join("\n"));
+            expect(Notes.find().count()).to.equal(3);
         }),
         it("creates document with title", function () {
             csvImporter(header+"A Title");
