@@ -6,3 +6,24 @@ By simply tagging your notes you will be able to navigate all your notes through
 
 Less work, more discovery!
 
+= Import and Export
+
+You can export all notes, including their tags to various formats.
+
+NOTE: Currently only CSV is supported.
+
+== CSV Format
+
+The export to CSV will create a single line in the CSV file with the fields
+
+ - title
+ - content
+ - tags
+
+As the content normally contains multiple lines, and the CSV format doesn't support fields with embedded newlines, each newline is converted to the three characters "\\n" (backslash, backslash, 'n').
+
+By doing this it is possible to import the CSV file back into NoteIt (which will automatically do the reverse conversion on import) or into other programs supporting CSV import (where you probably have to do the conversion after the import).
+
+If you want to import information from some other source into NoteIt you can use this conversion to import information that contains newlines (multiple lines). Just replace every newline with the three character sequence before you do the import.
+
+The best source for detailed information about the exact format of import files in CSV format is an export. Create a few notes with content and tags, and then do an export. The resulting file will be a template for your import file.

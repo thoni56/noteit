@@ -23,7 +23,7 @@ if (Meteor.isServer) {
     });
     
     describe("CSV importer", function () {
-        const header = "title,content, tags\n";
+        const header = "title,content,tags\n";
         it("creates no documents for empty string", function () {
             csvImporter("");
             expect(Notes.find().count()).to.equal(0);
@@ -48,6 +48,17 @@ if (Meteor.isServer) {
             csvImporter(header+"A Title");
             const note = Notes.findOne();
             expect(note.title).to.equal("A Title");
+        }),
+        it("allows commas in title if inside quotes", function () {
+            csvImporter(header+"\"A title, with comma\", content");
+            const note = Notes.findOne();
+            expect(note.title).to.equal("A title, with comma");
+        }),
+        it("allows newlines in content if they are represented as \\\\n", function () {
+            csvImporter(header+"\"A title, with comma\",\"contains\\\\nnew line\"");
+            const note = Notes.findOne();
+            expect(note.content).to.equal("contains\nnew line");
         })
+
     })
 }

@@ -5,7 +5,9 @@ export function serializeAllNotes() {
     const notes = allNotes().fetch();
 
     const serializedNotes = notes.map(function(note) {
-        return { title: note.title, content: note.content, tags: serializeTags(note.tags) };
+        const content = note.content?note.content.replace(/\n/g, '\\\\n'):"";
+        console.log(note.content, content);
+        return { title: note.title, content: content, tags: serializeTags(note.tags) };
     })
     return serializedNotes;
 }

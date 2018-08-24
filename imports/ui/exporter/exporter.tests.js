@@ -69,6 +69,12 @@ if (Meteor.isServer) {
             expect(serializedNote).to.have.property('title', "Title");
             expect(serializedNote).to.have.property('content', "Content");
             expect(serializedNote).to.have.property('tags', "tag1,tag2");
-        })
+        }),
+        it("exports newlines in content as \\\\n", function () {
+            Notes.insert({ _id:"laskdf", title: "Title", content: "Content\nwith\nnewlines"} );
+            const serializedNotes = serializeAllNotes();
+            const serializedNote = serializedNotes[0];
+            expect(serializedNote).to.have.property('content', "Content\\\\nwith\\\\nnewlines");
+        } )
     })
 };
