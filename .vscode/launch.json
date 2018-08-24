@@ -25,7 +25,6 @@
             "outputCapture": "std",
             "port": 9229,
             "timeout": 90000,
-            "trace": "verbose",
             "console": "integratedTerminal"
         },
         {
