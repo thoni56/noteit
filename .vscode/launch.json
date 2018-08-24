@@ -24,7 +24,9 @@
             "runtimeArgs": ["run", "debug"],
             "outputCapture": "std",
             "port": 9229,
-            "timeout": 90000
+            "timeout": 90000,
+            "trace": "verbose",
+            "console": "integratedTerminal"
         },
         {
             "type": "node",
@@ -38,6 +40,7 @@
             "outputCapture": "std",
             "port": 9229,
             "timeout": 360000,
+            "console": "integratedTerminal"
           },
           {
             "type": "chrome",
