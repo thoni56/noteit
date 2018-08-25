@@ -8,13 +8,17 @@ export function csvImporter(string) {
         if (results.data.length > 0) {
             results.data.forEach(element => {
                 const content = element.content?element.content.replace(/\\\\n/, "\n"):"";
-                const note = createNote(element.title, content);
-                if (element.tags) {
-                    const tag = Tags.findOne({name: element.tags});
-                    console.log(tag);
-                    addTagToNote(tag, note);
-                } 
+                importNote(element, content); 
             });
         }
     } 
+}
+
+function importNote(element, content) {
+    const note = createNote(element.title, content);
+    if (element.tags) {
+        const tag = Tags.findOne({ name: element.tags });
+        console.log(tag);
+        addTagToNote(tag, note);
+    }
 }
