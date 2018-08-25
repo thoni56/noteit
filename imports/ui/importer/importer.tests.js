@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Notes } from '../../api/notes';
-import { Tags } from '../../api/tags';
+import { Tags, createTag } from '../../api/tags';
 import { expect } from 'chai';
 import StubCollections from 'meteor/hwillson:stub-collections';
 import { csvImporter } from './importer';
@@ -55,10 +55,16 @@ if (Meteor.isServer) {
             expect(note.title).to.equal("A title, with comma");
         }),
         it("allows newlines in content if they are represented as \\\\n", function () {
-            csvImporter(header+"\"A title, with comma\",\"contains\\\\nnew line\"");
+            csvImporter(header+"\"A title\",\"contains\\\\nnew line\"");
             const note = Notes.findOne();
             expect(note.content).to.equal("contains\nnew line");
-        })
+        }),
+        it("stores a tag id if the tag exists", function () {
+            const id = createTag("tag");
+            csvImporter(header+"\"A title\",\"content\",tag");
+            const note = Notes.findOne();
+            expect(note.tags).to.deep.equal([id]);
+        } )
 
     })
 }
