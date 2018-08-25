@@ -6,7 +6,6 @@ export function serializeAllNotes() {
 
     const serializedNotes = notes.map(function(note) {
         const content = note.content?note.content.replace(/\n/g, '\\\\n'):"";
-        console.log(note.content, content);
         return { title: note.title, content: content, tags: serializeTags(note.tags) };
     })
     return serializedNotes;
