@@ -64,7 +64,12 @@ if (Meteor.isServer) {
             csvImporter(header+"\"A title\",\"content\",tag");
             const note = Notes.findOne();
             expect(note.tags).to.deep.equal([id]);
-        } )
-
+        }),
+        it("creates and add a tag id if the tag doesn't exists", function () {
+            csvImporter(header+"\"A title\",\"content\",tag");
+            const tag = Tags.findOne();
+            const note = Notes.findOne();
+            expect(note.tags).to.deep.equal([tag._id]);
+        })
     })
 }

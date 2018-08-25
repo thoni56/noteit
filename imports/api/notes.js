@@ -29,9 +29,13 @@ export function tagsForNote(noteId) {
 }
 
 export function addTagToNote(tag, noteId) {
+    addTagIdToNote(tag._id, noteId);
+}
+
+export function addTagIdToNote(tagId, noteId) {
     const tagsArray = tagsForNote(noteId);
-    if (!tagsArray.includes(tag._id)) {
-        tagsArray.push(tag._id);
+    if (!tagsArray.includes(tagId)) {
+        tagsArray.push(tagId);
         Notes.update(noteId, {
             $set: { tags: tagsArray }
         });
