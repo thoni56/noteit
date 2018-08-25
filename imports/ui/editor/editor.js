@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import SimpleMDE from 'simplemde';
 import { createNote, getNote, deleteNote, updateNote, tagsForNote, addTagToNote } from '../../api/notes.js';
-import { Tags } from '../../api/tags.js';
+import { Tags, createTag } from '../../api/tags.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
 import { setActive } from '../notelist/note.js';
@@ -83,7 +83,7 @@ Template.editor.events({
                     focus: "cancel"
                 }, function (ok) {
                     if (ok) {
-                        Tags.insert({name: tagname, owner: Meteor.userId()});
+                        createTag(tagname);
                         tag = Tags.findOne({name: tagname});
                         addTagToNote(tag, currentNoteId.get());
                         tags.set(tagsForNote(currentNoteId.get()));
