@@ -8,7 +8,7 @@ export function csvImporter(string) {
         if (results.data.length > 0) {
             results.data.forEach(element => {
                 const content = convertBackslashBackslashNToNewline(element.content);
-                importNote(element, content);
+                importNoteAndTags(element.title, content, element.tags);
             });
         }
     }
@@ -18,10 +18,10 @@ function convertBackslashBackslashNToNewline(content) {
     return content ? content.replace(/\\\\n/, "\n") : "";
 }
 
-function importNote(element, content) {
-    const note = createNote(element.title, content);
-    if (element.tags) {
-        const tagNames = element.tags.split(",");
+function importNoteAndTags(title, content, tags) {
+    const note = createNote(title, content);
+    if (tags) {
+        const tagNames = tags.split(",");
         trimTagNames(tagNames); 
         tagNames.forEach(function (tagName) {
             let tagId = findOrCreateTag(tagName);
