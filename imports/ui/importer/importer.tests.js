@@ -70,6 +70,15 @@ if (Meteor.isServer) {
             const tag = Tags.findOne();
             const note = Notes.findOne();
             expect(note.tags).to.deep.equal([tag._id]);
+        }),
+        it("creates and adds two tags", function () {
+            const tagId1 = createTag("tag1");
+            csvImporter(header+"\"A title\",\"content\",\"tag1,tag2\"");
+            expect(Tags.find().count()).to.equal(2);
+            const tagId2 = Tags.findOne({name: "tag2"})._id;
+            const note = Notes.findOne();
+            expect(note.tags).to.contain(tagId1);
+            expect(note.tags).to.contain(tagId2);
         })
     })
 }

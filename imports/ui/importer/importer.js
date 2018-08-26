@@ -7,23 +7,26 @@ export function csvImporter(string) {
         const results = Papa.parse(string.trim(), { header: true, skipEmptyLines: true });
         if (results.data.length > 0) {
             results.data.forEach(element => {
-                const content = element.content?element.content.replace(/\\\\n/, "\n"):"";
-                importNote(element, content); 
+                const content = element.content ? element.content.replace(/\\\\n/, "\n") : "";
+                importNote(element, content);
             });
         }
-    } 
+    }
 }
 
 function importNote(element, content) {
     const note = createNote(element.title, content);
     if (element.tags) {
-        const tag = Tags.findOne({ name: element.tags });
-        let tagId;
-        if (!tag) {
-            tagId = Tags.insert({ name: element.tags });
-        } else {
-            tagId = tag._id;
-        } 
-        addTagIdToNote(tagId, note);
+        const tagNames = element.tags.split(",");
+        tagNames.forEach(function (tagName) {
+            const tag = Tags.findOne({ name: tagName });
+            let tagId;
+            if (!tag) {
+                tagId = Tags.insert({ name: tagName });
+            } else {
+                tagId = tag._id;
+            }
+            addTagIdToNote(tagId, note);
+        })
     }
 }
