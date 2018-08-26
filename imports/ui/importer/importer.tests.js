@@ -79,6 +79,10 @@ if (Meteor.isServer) {
             const note = Notes.findOne();
             expect(note.tags).to.contain(tagId1);
             expect(note.tags).to.contain(tagId2);
+        }),
+        it("strips space around tags before inserting them", function () {
+            csvImporter(header+"\"A title\",\"content\",\"tag1, tag2\"");
+            expect(Tags.findOne({name: "tag2"})).to.not.equal(undefined);
         })
     })
 }
