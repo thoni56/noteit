@@ -4,7 +4,6 @@ import Papa from 'papaparse';
 
 export function csvImporter(string) {
     if (string) {
-        console.log(Papa);
         const results = Papa.parse(string.trim(), { header: true, skipEmptyLines: true });
         if (results.data.length > 0) {
             results.data.forEach(element => {
