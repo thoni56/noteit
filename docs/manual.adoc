@@ -20,7 +20,7 @@ The export to CSV will create a single line in the CSV file with the fields
  - content
  - tags
 
-As the content normally contains multiple lines, and the CSV format doesn't support fields with embedded newlines, each newline is converted to the three characters "\\n" (backslash, backslash, 'n').
+As the content, being formatted text of some length, normally contains multiple lines, and the CSV format doesn't support fields with embedded newlines, each newline is converted to the three characters "\\n" (backslash, backslash, 'n').
 
 By doing this it is possible to import the CSV file back into NoteIt (which will automatically do the reverse conversion on import) or into other programs supporting CSV import (where you probably have to do the conversion after the import).
 
