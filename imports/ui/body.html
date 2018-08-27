@@ -4,6 +4,12 @@
       <h1>Welcome to NoteIt!</h1>
       <div style="float:right; padding-top:20px;">{{> loginButtons align="right"}}</div>
       <div style="float:right; padding:20px;"><div style="line-height: 1"><a href='#' id="exportCSVlink">Export as CSV</a></div></div>
+      <div style="float:right; padding:20px;">
+        <div style="line-height: 1">
+          <a href="#" id="importCSVlink">Import CSV</a>
+          <input type="file" id="importFileName" style="opacity: 0.0; position: absolute; top:0; left: 0; bottom: 0; right:0; width: 0%; height:0%;" />
+        </div>
+      </div>
     </header>
 
     <div class="tag-filter col-xs-12">
