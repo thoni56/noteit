@@ -5,10 +5,14 @@ export function serializeAllNotes() {
     const notes = allNotes().fetch();
 
     const serializedNotes = notes.map(function(note) {
-        const content = note.content?note.content.replace(/\n/g, '\\\\n'):"";
+        const content = encodeNewLinesAsBackslashBackslashN(note);
         return { title: note.title, content: content, tags: serializeTags(note.tags) };
     })
     return serializedNotes;
+}
+
+function encodeNewLinesAsBackslashBackslashN(note) {
+    return note.content ? note.content.replace(/\n/g, '\\\\n') : "";
 }
 
 export function convertSerializedNotesToCSV(notes) {  
