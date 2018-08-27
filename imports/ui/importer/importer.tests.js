@@ -55,9 +55,9 @@ if (Meteor.isServer) {
             expect(note.title).to.equal("A title, with comma");
         }),
         it("allows newlines in content if they are represented as \\\\n", function () {
-            csvImporter(header+"\"A title\",\"contains\\\\nnew line\"");
+            csvImporter(header+"\"A title\",\"contains\\\\nnew line\\\\nnew line\"");
             const note = Notes.findOne();
-            expect(note.content).to.equal("contains\nnew line");
+            expect(note.content).to.equal("contains\nnew line\nnew line");
         }),
         it("stores a tag id if the tag exists", function () {
             const id = createTag("tag");

@@ -16,7 +16,7 @@ export function csvImporter(string) {
 }
 
 function convertBackslashBackslashNToNewline(content) {
-    return content ? content.replace(/\\\\n/, "\n") : "";
+    return content ? content.replace(/\\\\n/g, "\n") : "";
 }
 
 function importNoteAndTags(title, content, tags) {
