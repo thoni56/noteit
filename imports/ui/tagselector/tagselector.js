@@ -47,7 +47,7 @@ Template.tagselector.helpers({
 
 Template.tagselector.events({
     'click .tag'(event) {
-        const columnIndex = columnIndexFromElement(event.target, 'tag-column-');
+        const columnIndex = columnIndexFromElement(event.target.parentNode, 'tag-column-');
         popTagsUpto(columnIndex);
         pushTag(this._id);
     },
@@ -61,7 +61,7 @@ Template.tagselector.events({
 });
 
 function columnIndexFromElement(node, prefix) {
-    return Number(node.parentNode.id.slice(prefix.length));
+    return Number(node.id.slice(prefix.length));
 }
 
 function potentialNextTags(tagNames) {
