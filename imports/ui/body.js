@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor'; 
 import { Template } from 'meteor/templating';
 import { serializeAllNotes, convertSerializedNotesToCSV } from './exporter/exporter';
 import { csvImporter } from './importer/importer';
@@ -17,6 +18,10 @@ Template.body.events({
         importCSV(event.target.files[0]);
     }
 });
+
+Template.body.loggedin = function() {
+    return Meteor.userId();
+} 
 
 function exportCSV() {
     const csv = convertSerializedNotesToCSV(serializeAllNotes());
