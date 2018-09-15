@@ -2,6 +2,28 @@ import { Mongo } from 'meteor/mongo';
 
 export const Notes = new Mongo.Collection('Notes');
 
+Meteor.methods({
+    'createNote'(title, content) {
+        const noteId = Notes.insert({
+            owner: Meteor.userId(),
+            title: title,
+            content: content,
+            createdAt: new Date(),
+        });
+        return noteId;    
+    },
+    'deleteNote'(noteId) {
+        Notes.remove(noteId);
+    },
+    'updateNote'(noteId, fields) {
+        Notes.update(noteId, fields);
+    }
+})
+
+export function allNotes() {
+    return Notes.find({});
+}
+
 export function notesWithTags(tags, sorting) {
     if (!sorting) {
         sorting = { createdAt: -1 };
@@ -12,10 +34,6 @@ export function notesWithTags(tags, sorting) {
     } else {
         return Notes.find({ tags: { $all: tags } }, { sort: sorting });
     }
-}
-
-export function allNotes() {
-    return Notes.find({});
 }
 
 export function tagsForNote(noteId) {
@@ -36,24 +54,18 @@ export function addTagIdToNote(tagId, noteId) {
     const tagsArray = tagsForNote(noteId);
     if (!tagsArray.includes(tagId)) {
         tagsArray.push(tagId);
-        Notes.update(noteId, {
+        Meteor.call('updateNote', noteId, {
             $set: { tags: tagsArray }
         });
     }
 }
 
 export function createNote(title, content) {
-    const noteId = Notes.insert({
-        owner: Meteor.userId(),
-        title: title,
-        content: content,
-        createdAt: new Date(),
-    });
-    return noteId;
+    Meteor.call('createNote', title, content)
 }
 
 export function deleteNote(noteId) {
-    Notes.remove(noteId);
+    Meteor.call('deleteNote', noteId);
 }
 
 export function updateNote(noteId, title, content) {
