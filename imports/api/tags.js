@@ -8,6 +8,6 @@ Meteor.methods({
     }
 })
 
-export function createTag(tagname) {
-    return Meteor.call('tag.create', tagname);
+export function createTag(tagname, callback) {
+    return Meteor.call('tag.create', tagname, callback);
 }

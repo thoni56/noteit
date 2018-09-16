@@ -5,7 +5,7 @@ import { Tags, createTag } from '../../api/tags.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Confirmation } from 'meteor/matdutour:popup-confirm';
 import { setActive } from '../notelist/note.js';
- 
+
 import './editor.html';
 
 export var editor;
@@ -32,7 +32,7 @@ export function load(noteId) {
 
 export function save() {
     const title = document.getElementById('note-title').value.trim();
- 
+
     if (!editorIsEmpty(title)) {
         if (!editingExistingNote()) {
             currentNoteId.set(createNote(title, editor.value()));
@@ -44,15 +44,15 @@ export function save() {
 }
 
 Template.editor.onRendered(function () {
-    editor = new SimpleMDE({element: document.getElementById("editor")});
+    editor = new SimpleMDE({ element: document.getElementById("editor") });
     tagsField = document.getElementById('add-tag');
     titleField = document.getElementById('note-title')
 });
 
 Template.editor.helpers({
     notetags() {
-        return Tags.find({ _id: { $in : tags.get() }});
-    }, 
+        return Tags.find({ _id: { $in: tags.get() } });
+    },
 });
 
 Template.editor.events({
@@ -71,11 +71,11 @@ Template.editor.events({
         event.preventDefault();
         if (currentNoteId.get()) {
             const tagname = tagsField.value.trim();
-            let tag = Tags.findOne({name: tagname});
+            let tag = Tags.findOne({ name: tagname });
             const tagform = event.target;
             if (!tag) {
                 new Confirmation({
-                    message: "Do you want to create the new tag '"+tagname+"' ?",
+                    message: "Do you want to create the new tag '" + tagname + "' ?",
                     title: "Create new tag?",
                     cancelText: "No",
                     okText: "Yes",
@@ -83,13 +83,19 @@ Template.editor.events({
                     focus: "cancel"
                 }, function (ok) {
                     if (ok) {
-                        createTag(tagname);
-                        tag = Tags.findOne({name: tagname});
-                        addTagToNote(tag, currentNoteId.get());
-                        tags.set(tagsForNote(currentNoteId.get()));
-                        tagform.reset();
+                        createTag(tagname, (error, result) => {
+                            if (error) {
+                                new Meteor.Error(error);
+                            }
+                            else {
+                                tag = Tags.findOne({ name: tagname });
+                                addTagToNote(tag, currentNoteId.get());
+                                tags.set(tagsForNote(currentNoteId.get()));
+                                tagform.reset();
+                            }
+                        });
                     }
-                })
+                });
             } else {
                 addTagToNote(tag, currentNoteId.get());
                 tags.set(tagsForNote(currentNoteId.get()));
@@ -125,7 +131,7 @@ function editingExistingNote() {
 }
 
 function editorIsEmpty(title) {
-    return title.length == 0 && editor.value().length == 0; 
+    return title.length == 0 && editor.value().length == 0;
 }
 
 function resetEditor() {

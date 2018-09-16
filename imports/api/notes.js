@@ -60,8 +60,8 @@ export function addTagIdToNote(tagId, noteId) {
     }
 }
 
-export function createNote(title, content) {
-    Meteor.call('note.create', title, content)
+export function createNote(title, content, callback) {
+    Meteor.call('note.create', title, content, callback)
 }
 
 export function deleteNote(noteId) {
@@ -69,7 +69,7 @@ export function deleteNote(noteId) {
 }
 
 export function updateNote(noteId, title, content) {
-    Notes.update(noteId, {
+    Meteor.call('note.update', noteId, {
         $set: {
         title: title,
             content: content,

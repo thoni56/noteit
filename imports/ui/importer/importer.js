@@ -19,27 +19,37 @@ function convertBackslashBackslashNToNewline(content) {
 }
 
 function importNoteAndTags(title, content, tags) {
-    const note = createNote(title, content);
-    if (tags) {
-        const tagNames = tags.split(",");
-        trimTagNames(tagNames); 
-        tagNames.forEach(function (tagName) {
-            let tagId = findOrCreateTag(tagName);
-            addTagIdToNote(tagId, note);
-        })
-    }
+    createNote(title, content, (error, result) => {
+        if (error) {
+            alert(error);
+        } else {
+            if (tags) {
+                const tagNames = tags.split(",");
+                trimTagNames(tagNames); 
+                tagNames.forEach(function (tagName) {
+                    addTagnameToNote(tagName, result);
+                })
+            }
+        }
+    });
 }
 
-function findOrCreateTag(tagName) {
+
+function addTagnameToNote(tagName, note) {
     const tag = Tags.findOne({ name: tagName });
-    let tagId;
     if (!tag) {
-        tagId = createTag(tagName);
+        createTag(tagName, (err, result) => {
+            if (err) {
+                alert(err);
+            } else {
+                console.log("Create tag="+result);
+                addTagIdToNote(result, note);
+            }
+        });
     }
     else {
-        tagId = tag._id;
+        return tag._id;
     }
-    return tagId;
 }
 
 function trimTagNames(tagNames) {
