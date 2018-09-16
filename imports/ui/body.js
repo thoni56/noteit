@@ -30,7 +30,6 @@ function exportCSV() {
 }
 
 function importCSV(file) {
-    console.log(file);
     const reader = new FileReader(file);
     reader.onload = function () {
         csvImporter(reader.result);
