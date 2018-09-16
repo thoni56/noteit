@@ -3,7 +3,7 @@ import { Mongo } from 'meteor/mongo';
 export const Notes = new Mongo.Collection('Notes');
 
 Meteor.methods({
-    'createNote'(title, content) {
+    'note.create'(title, content) {
         const noteId = Notes.insert({
             owner: Meteor.userId(),
             title: title,
@@ -12,10 +12,10 @@ Meteor.methods({
         });
         return noteId;    
     },
-    'deleteNote'(noteId) {
+    'note.delete'(noteId) {
         Notes.remove(noteId);
     },
-    'updateNote'(noteId, fields) {
+    'note.update'(noteId, fields) {
         Notes.update(noteId, fields);
     }
 })
@@ -54,18 +54,18 @@ export function addTagIdToNote(tagId, noteId) {
     const tagsArray = tagsForNote(noteId);
     if (!tagsArray.includes(tagId)) {
         tagsArray.push(tagId);
-        Meteor.call('updateNote', noteId, {
+        Meteor.call('note.update', noteId, {
             $set: { tags: tagsArray }
         });
     }
 }
 
 export function createNote(title, content) {
-    Meteor.call('createNote', title, content)
+    Meteor.call('note.create', title, content)
 }
 
 export function deleteNote(noteId) {
-    Meteor.call('deleteNote', noteId);
+    Meteor.call('note.delete', noteId);
 }
 
 export function updateNote(noteId, title, content) {

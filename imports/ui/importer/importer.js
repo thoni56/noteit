@@ -1,5 +1,5 @@
 import { createNote, addTagIdToNote } from '../../api/notes';
-import { Tags } from '../../api/tags';
+import { Tags, createTag } from '../../api/tags';
 import Papa from 'papaparse';
 
 export function csvImporter(string) {
@@ -34,7 +34,7 @@ function findOrCreateTag(tagName) {
     const tag = Tags.findOne({ name: tagName });
     let tagId;
     if (!tag) {
-        tagId = Tags.insert({ name: tagName });
+        tagId = createTag(tagName);
     }
     else {
         tagId = tag._id;
