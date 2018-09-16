@@ -1,0 +1,226 @@
+title;content;tags;Created;Modified
+TDD är programmeringens multiplikationstabell;Vissa saker måste man bara kunna för att slippa tänka på dom när man kommer till problemlösningen.;techniques,problems,tdd;2009-11-03 23:22:36;2009-11-04 09:36:43
+Organisations can't learn;They can only operate, but on very different levels of performance so an organisation should evolve it's way of operation instead of learning. Only persons can learn. ;learning;2009-11-03 22:00:03;2009-11-04 09:35:39
+Flygplansvikning med kvalitetskontroller;Tex var tredje skall vara grön, inga röda eller ... Då kan man köra en gång med efterkontroll och en där varje person kontrollerar sin inkö med avseende på ett kriteria. Jämför hur det kändes när tiden var slut. ;exercise,quality,done,flow;2009-11-03 22:02:17;2009-11-04 09:35:46
+Reversing mocks;"If we have a lot of mocks which describes behaviour, is it possible to create a verifying frame work from these mocks by reversing the mock? We would like to verify the behaviour of the implementation of the mocked class by running some tests which verifies that it behaves as we had expected in our mocks.
+Or it might be possible to substitute the mocks with the real implementation and having a mocking spy verify the behaviour of it according to the assumtions in the mock?";mocks,testing;2009-11-25 10:18:51;2009-11-25 10:24:31
+Nash Equilibrium;Kallokain blogged about Nash equilibrium killing Agile initiatives. A Nash equilibrium is when one participant can't change his strategy, even though it would be a better strategy, unless one or more of the other participants change their strategy. This might also be valid in the introduction of Agile development within an organisation. A design organisation can not change strategy to agile unless project and product management does so to? Even test persons within the design organisation might incure this resistans. A programmer team could not change into agile unless testing persons also change into testing everything all the time. That's why Scrum insists on having testers as part of the team!;change,transition,process;2009-11-25 10:03:47;2009-11-25 10:15:02
+Separera abstraktionsnivåer i projekt och funktionalitet;Abstraktionsnivåer i projekt och funktionalitet får inte brytas. De måste överbryggas genom att personer som är bekväma och kunniga på båda nivåerna och språkbruken finns i båda sfärerna.;estimation,breakdown,requirements,planning,project,product owner,competence;2009-11-25 09:24:55;2009-11-25 10:13:26
+Refactoring is migration;Much refactoring is done by having multiple solutions available at once and looking at it as a migration of the application from one to the other. When you are done with the refactoring you are also done with the migration and one of the solutions can be removed.;refactoring,small steps,done;2009-11-03 22:11:33;2009-11-04 09:36:14
+Inserting a printout can show coverage;In order to prepare for refactoring you often need to know if you have *any* tests that cover the code you are going to change. If you insert a printout in that code you can run the regression tests you have. If any fail then at least you have some tests that traverse that code.;refactoring,coverage,testing;2009-11-27 08:00:04;2009-12-01 08:59:03
+Scrum ska synliggöra problem, inte lösa dom;"Om man kastrerar scrum så riskerar man att man inte ser problemen
+Pressar man utvecklare kommer de att kompromissa kvalitet vilket då också bli osynligt. ";scrum,problems,compromise,visualize;2009-11-03 23:22:58;2009-11-25 10:32:33
+Stories should convey need;"Better stories tell about the needs of the user/stakeholder. So a good user story should describe this need and why this need exists. Beginner story writers tend to put the technical requirement as the ""I want"" part but then have a hard time to figure out the ""so that/because"" part. This is a ""story smell"".
+
+However, in early stages of agile team development (Taxiing, and Lift-off) this can be an acceptable loss.";smells,stories,flight of the team;2009-11-09 08:03:35;2009-11-12 09:48:24
+Bad ideas;There is no such thing as a bad idea. Only ideas that doesn't fit into the current work. So you need to bring out the ideas first, before deciding if it fits or not.;problems,ideas;2009-11-25 10:38:26;2009-11-25 10:39:44
+Agile People;All agile people enjoy learning new skills and tools, they don't limit themselves to solving only some type of issues and problems.;people,competence;2009-11-06 10:30:26;2009-11-25 10:09:30
+Inåt och utåt;Både produktägare och delprojektledare har två sfärer, en inåt och en utåt. Blanda inte ihop dem, använd samma språk eller försök att matematiskt koppla ihop dem. De är på olika abstraktionsnivå.;abstraction,language,project lead,product owner;2009-11-25 10:34:39;2009-11-25 10:37:53
+Outsourcing non-core business;Outsourcing everything not core business might be the wrong thinking. The non-core business might be enabling technologies, activities. Outsourcing them might kill your opportunities to refactor your critical processes.;refactoring,outsourcing,core business,improvement,process;2009-11-25 09:26:35;2010-05-31 07:08:12
+Återkoppling för förbättring och planering är olika;Att analysera hur vi hamnade här istället för där vi planerade är bara intressant ur ett förbättringsperspektiv (retrospektiv). Ur ett planeringsperspektiv är det viktigaste att använda statisk för prognos och analysera skillnaden mellan planerat resultat och verkligt resultat.;retrospective,improvement,planning,feedback;2009-11-04 09:28:02;2009-11-04 09:32:49
+Fragile mocks;Mocks speglar ju beteende hos andra enheter så hur får man dessa gå i takt utan en massa manuell uppdatering av mocks beteenden?;mocks,dependencies,unit testing;2009-11-03 22:14:02;2009-11-04 09:36:35
+Agile & Lean culture circular dependency;You can't change culture. But culture can change. Agile and Lean requires culture change. You are not Agile or Lean if you havent changed the culture.;agile,change,lean,culture;2009-11-14 10:18:21;2009-11-25 10:03:44
+Stories for Refactoring;Stories for refactoring should not be put on the backlog, but in early stages of the flight this might be a way to visualize this for the team and PO.;refactoring,stories,backlog,flight of the team;2009-11-04 11:15:27;2009-11-04 11:17:09
+Architect: the developers I work for...;Mark Richards on Agile Toolkit;architecture;2009-11-03 22:10:17;2009-11-04 09:36:04
+Bättre än majoriteten;De flesta tror att de är bättre än majoriteten alltså är det enda sättet att hela tiden bli bättre i relation till oss själva.;improvement;2009-11-02 17:01:49;2009-11-02 17:02:14
+Dimensioner i komplexitet:;"Flera team för samma produkt
+Flera produkter som bildar system
+Distribuerad utveckling
+Distribuerade team
+En produktägare per team
+Produktägare som inte längre kan sin produkt tex applikationskunskap
+Systems of systems
+Avståndet mellan produktbackloggen och  intressenten är så stort att inte en person kan hantera det
+Projektlängderna överstiger teamets estimeringskapacitet
+Investeringskalkyl
+Systemtestresurser";development,configuration,complexity;2009-11-06 10:29:32;2009-11-25 10:09:50
+Story breakdown and low level planning;Agile story breakdown and agile low level planning and follow up are mutually dependent upon one another because you can't continuously deliver value if you have stories in the wrong format.;stories,iteration planning,story format,tasks,deliver value,planning,story breakdown;2009-11-25 09:43:40;2010-10-20 16:04:22
+Diskussion under analys är viktigare än att diskutera slutsatsen;I förståelsesyfte måste diskussionen kring analysen få större vikt än diskussionen som följer av slutsatsen.;analysis;2009-11-02 17:04:36;2009-11-02 22:50:48
+The Process as the Goal;If you organise your improvement work or process or operational development outside of the organisation then it is very common, and easy, for that other person, project, department or organisation to start setting the process as the goal, and not see it as for what it is, a means.;operational development,improvement,quality,process;2009-11-25 16:36:14;2009-11-25 16:38:12
+Standup should focus on progress;A good standup is focused on progress, not status. Status puts you in the mindset of standing still, progress indicates that you are moving!;reporting,standup,flight of the team,progress;2009-11-25 09:23:55;2009-11-25 14:58:33
+There is no need for a Scrum Master;"Ultimately a team will evolve to a state when they don't need a Scrum Master. There is no longer a need for a ""process police"" or a ""remover of obstacles"" or ""protector of the team"" because the team will do these things as a part of their daily work, or the organisation has grown to not ""bother the team"" with things that contradict the agile values.";scrum master,scrum,flight of the team;2009-11-20 16:23:42;2009-11-20 16:26:26
+Burndown and burnups;Burnups is not the same as burndowns. Psychologically having nothing left to do is infinitely better than the feeling that it is always posssible to add more stuff on top.;followup,visualize,planning,burndown,progress;2009-11-25 10:29:10;2010-10-20 16:03:58
+Specialists, experts and generalists;"En expert kan inte alla fall inom sitt område. Han kan alla typfall eller klasser av fall och kan därifrån dra generaliserande, eller syntetiserande, slutsatser om det specifika fallet. Eller är detta en generalist? Eller kanske en T-formad människa?
+Experter är kunniga, specialister är experter inom ett område?";experts,competence;2009-11-25 10:42:00;2009-11-25 11:30:52
+The Agile techniques are not agile;The separate techniques are not agile in themselves. They support being agile, e.g. because they force early feedback, support late changes or increases insight into what is valuable.;techniques,agile;2009-11-13 09:23:27;2010-03-15 15:32:17
+Preplanning to visualise backlog;If the organisation around the team is not mature enough to prepare a visible, clear, backlog to the team on the iteration planning, then a pre-planning meeting can be used to assemble product owner, scrum master, senior designer, sub-project manager, and any other persons deemed necessary, to produce this. Because an unclear product backlog as a starting point for an iteration planning will confuse the team and make them waste time on setting up the priorities.;backlog,planning,flight of the team;2009-11-26 11:37:29;2009-11-26 11:40:46
+En vanlig dag;"
+Planen:
+* Tanka bilen
+* Köra till jobbet
+* Börja jobba 08.00
+* Besvara 15 mail
+* Ringa och/eller besvara 10 telefonsamtal
+* En timmes lunch
+* Boka tid på bilbesiktningen inom 1 vecka
+* Boka tid hos tandläkaren inom 2 veckor
+* Två entimmarsmöten
+* Skriva något dokument
+* Sluta jobba 17.00
+* Handla middagsmat
+* Hämta barnen på dagis
+
+Variabiliteten:
+- Kom man i tid till jobbet eller var det kö på macken?
+- Var det 15 mail som skulle besvaras eller var det 20?
+- Ringde det en elfte person efter att de stipulerade 10 samtalen var avklarade?
+- Gick det att få tid för bilbesiktning inom 1 vecka?
+- Gick det att få tid hos tandläkaren inom 2 veckor?
+- Höll båda mötena tiden?
+- Blev dokumentet klart för granskning?
+- Kom man iväg kl. 17?
+- Hann man i tid till dagis eller var det för mycket folk i mataffären?
+ 
+Om man inte rutat in sitt liv som Rainman så tror jag att de flesta av oss har ganska stora avvikelser i hur en ""normal"" dag ter sig i förhållande till hur vi tror att en ""normal"" dag skall te sig. Hur stora skulle felmarginalerna bli om man multiplicerade ovanstående med ett fiktivt projekt om 6 månader och 10 personer?
+
+(Morgan Ahlström, Agile Sweden 2009)";planning,project;2009-11-02 22:48:17;2010-02-27 10:25:46
+The design teams I work for...;"Mark Richards said on Agile Toolkit: ""The design teams that I work for..."" This is an interesting and agile reversal of the role of the architect. Instead of being someone in a high place ""ordering"" designers/programmers to do things, he works as a ""consultant"" to the teams. Helping them to see a simpler design across the teams and subsystems, maybe?";architecture;2009-11-25 10:24:47;2009-11-25 10:28:29
+Resourcing Development;Why are companies resourcing projects instead of outsourcing projects? Are they afraid to lose control or is it because they think they can manage the project better themselves?;outsourcing,project,resources;2009-11-25 16:33:59;2009-11-25 16:35:39
+Experts know typical cases, not specific cases;En expert kan inte alla fall inom sitt område. Han kan alla typfall eller klasser av fall och kan därifrån dra generaliserande, eller syntetiserande, slutsatser om det specifika fallet. Eller är detta en generalist? Eller kanske en T-formad människa?;specialists,generalists,experts,t-shaped people,competence;2009-11-25 10:40:31;2009-11-25 10:42:00
+Architecture is the art of keeping things simple;Architecture is the art of keeping things simple, as simple as possible given the current functionality and non-functional properties. It's not about creating a platform for every conceivable functionality.;simple design,architecture;2009-11-25 09:45:46;2009-11-25 10:33:10
+Parametrar som styr olika dimensioner i vår uppsättning av processen;Tex deployment varje dag ger höga krav på done done, få kunder med mycket pengar styr krav-prioritering etc. Jämför med Crystal.;configuration,process;2009-11-06 10:28:10;2010-05-31 07:08:58
+Telefonkonferens fungerar om alla är närvarande;Det är skillnad på att vara närvarande och att vara mentalt närvarande. Och det hörs direkt vilket. Särskilt viktigt är detta om man använder telekonferens för standup.;distributed,standup;2009-11-04 19:51:33;2009-11-04 19:52:41
+Platforms should be grown;Platforms should be grown. Much like classes and refactoring you should extract platform functionality from working, specific implemendations instead of building the platform from scratch.;refactoring,platform;2009-11-25 09:48:47;2009-11-25 10:15:09
+Kockar är agila, eller inte...;"En del kockar, eller sådana som lagar mat, fokusera på att laga mat. När de är klara levererar de maten. Är det till familjen sätter man sig och äter och njuter av vad man åstadkommit. Sen är det bara det tråkiga efterarbetet kvar. Känns det igen?
+
+Andra som lagar mat lyckas sätta sig med familjen och i köket är allt redan undanplockat, diskat och rent. Hur går det till?
+
+Allt ingår! En sådan kock har klart för sig vad som måste vara gjort för att matlagningen skall vara klart. I många organisationer som utvecklar är utvecklare, arkitekter, ja hela utvecklingsorganisationen som den första sortens kockar. De lämnar en hel del till ""sen"".
+
+Agile är om att inte lämna något kvar till ""sen"".";analogies;2009-12-04 13:32:56;2009-12-04 14:03:41
+Drivers for development costs;"	1	Wrong, unneeded and misunderstood functionality
+	2	Long Feedback Loops
+	3	Repetitive Manual Labor
+	4	Technical Debt
+";development;2009-12-04 14:04:33;2009-12-04 14:13:48
+Price per hour competition is over;The race for lower hourly rates are over. The question now is who can produce the most business value per invested dollar.;business value,competition;2010-01-12 07:43:39;2010-01-12 07:44:45
+Avoiding cost of adjusting to feedback;Avoiding the cost of adoption and adjustment is at the core of Waterfall and Agile. Waterfall tries to avoid this cost by avoiding the adjustment, Agile by lowering the cost of adjustment.;agile,feedback,cost,waterfall;2010-01-12 07:51:30;2010-01-12 07:53:44
+Kent Becks Flight of the Startup;http://www.threeriversinstitute.org/blog/?p=251;sdc2010;2010-01-13 21:49:59;2010-01-19 10:29:58
+Are all pigs equal?;http://www.agilerecord.com/agilerecord_01.pdf;sdc2010;2010-01-19 10:28:47;2010-01-19 10:28:52
+Including simple neighbouring classes in your unit tests;Det verkar besvärligt att mocka bort enkla klasser, kanske känns det som om man skulle test dem integrerat med någon annan klass. T.ex decodern som läser en fil och från den hämtar delar som levererars till en klient, testklassen för en klient behöver då mocka decodern, varför inte använda en riktig decoder och ge den datat som skulle vara i filen? Jo, för att då sprider sig kunskapen om filformat till testklassen för klienten och där hör det definitivt inte hemma.;smells,unit testing;2010-01-30 21:12:29;2010-01-30 21:16:04
+Software is design not building;"Building software is done by compilers, linkers. Even the name for our servers doing that job is ""build server"". So writing the code is then creating the drawing, i.e. design.";design,metafore;2010-02-01 11:52:21;2010-02-01 11:53:34
+Levels of Abstraction vs. Needs & Solutions;"Traditional setup seems to propose that each level of abstraction covers both the actual need and a solution to it and that the handover occurs when we pass down to an appropriate level of abstraction.
+I propose that you should have the ""hand-over"" between the need and the solution. Sometimes the need is actually quite technical, contains a lot of design restrictions and other detailed information, but it is still the need. The solution is then the domain of the designers, implementers, developers.
+
+In one organization the decision to use a particular language was taken by the product management, probably because they thought that the understood the need and also had the mandate to take a ""solution""-decision.";flight of the team;2010-02-18 15:09:11;2010-02-18 21:59:48
+Branches are killers;"If you feel that you need to branch, then you are not into gradual change across the product. This might be caused by a number of factors, up front thinking, traditionalism etc. But basically this is just a way to hide from a cost until you need to merge. When this happens you need to realize this hidden cost and usually you will find more problems than just merging.
+A couple of teams I coached found themselves in a situation where they had done extensive refactoring on separate branches. When they merged it took three days for both team until they even got the system to build. Root cause was ""not enough communication"". I'd say it was ""hiding on a branch until it breaks"".";small steps,flight of the team,feedback,branching,postponed debt,technical debt;2010-02-23 11:04:36;2010-02-23 11:09:31
+A taxi ride;A taxi ride is like a project. I don't tell the driver which roads or streets to take. I give him the destination, because he knows the back alleys better than me, he knows where the traffic jams are, the city is his system. He knows how to take you where you want to go, if you know where you are going!;smells,planning,project,analogies;2010-02-23 21:43:06;2010-02-23 21:44:21
+A project should be as a relation;The first phase should be short, sweet and intense. Then it is best to start living together.;project,analogies;2010-02-23 21:46:22;2010-02-23 21:47:17
+The first rule of holes is to not make them deeper!;If you want to get into automated testing, you should start automating. (The first rule is to stop digging deeper holes);change,legacy,automated tests;2010-02-24 21:59:25;2010-02-24 22:01:13
+Why Agile Fails Reason #1;"If the promise of Agile is that higher productivity, quality, etc. come from being adaptive and responsive to change, acknowledging uncertainty, and trusting and empowering those on the front-line with the latent and expertise to solve the problem, then we also have to acknowledge the fact you cant realize that promise without also making explicit and deliberate steps to:  - make sure that we make the stuff we create easy & simple to change (so that we have the capability to adapt and respond *with* *agility*)  - make sure that we don't lock ourselves into unreasonable and unchangeable expectations up-front that leave no wiggle room to adapt/change scope or schedule  - make sure that we organize, measure, and reward/reinforce our people in a way that demonstrates trust and empowerment without suboptimizing for local performance.  Failing to do those things compromises the ability to instill the proper mind-set which enables the capability to be agile. Installing practices/rules without instilling the values and principles while fail to realize the promise of agility because it failed to respect the premise of agility. 
+Posted by Brad Appleton";flight of the team,reasons for failure;2010-02-25 06:57:14;2010-05-27 06:55:21
+Det är systems uppgift...;"""Det är systems uppgift att hålla koll på vad de systemerar. Om vi gör som de systemerat så är det inte vår uppgift att ifrågasätta det även om det blir dåligt.""";design,responsibility;2010-02-27 10:15:55;2010-10-20 16:03:18
+Good products comes from good questions;"Good products comes from good questions. The quality of your questions governs the quality of your product. Our mission is to make our customers ask better questions.
+ /Travis White, Lawson";quality,products,questions,good;2010-02-27 10:16:35;2010-02-27 10:18:01
+Optimize for people, not for computers;"It's time to optimize for people, not for computers.
+/Travis White, Lawson";operational development,people,optimization,user interface;2010-02-27 10:18:16;2010-02-27 10:18:36
+Helping customers by staying in business;"One of the best ways of helping customers is to stay in business.
+/Travis White, Lawson";business value,helping,customers;2010-02-27 10:19:08;2010-02-27 10:20:06
+Verksamhetsutveckling != beskrivning av processer;Varför är ofta verksamhetsutveckling lika med beskrivning av processer?;operational development,process;2010-02-27 10:20:24;2010-02-27 10:20:26
+Evaluations should focus on improvements;Evalutions are bad especially if they compare you to others. That brings you down, but if you focus on what you can do to improve it becomes something positive. Kind of like Appreciative Inquiry.;people,improvement,helping,evaluation,coaching;2010-02-27 10:21:06;2010-05-31 07:07:58
+Vad är det som vi försöker undvika?;Vad är det som vi försöker undvika? Kan vi minska kostnaden och effekten av det utifall det skulle inträffa?;agile,waterfall,probability,minimize cost,avoid cost;2010-02-27 10:22:07;2010-02-27 10:22:15
+Best practices are not always best;"Goes back to ""There is no Shu that fits everyone"".";improvement,process,best practices;2010-02-27 10:27:34;2010-05-31 07:07:38
+There are different Minimal XYZ;Minimal Marketable, Minimal Releasable & Minimal Deliverable & Minimal Developable are different;minimal,MMF;2010-02-27 10:26:16;2010-02-27 10:26:19
+PO should be off-shore;If you go for off-shoring, it probably would be best to off-shore the PO, too. It bleeds too much if you cut between the PO and the team.;product owner,off-shoring;2010-02-27 10:37:00;2010-02-27 10:38:14
+Varför vill man spåra från krav till kodrad?;Det är ju bara ur några enstaka aspekter, t.ex safety och traceability som man spårar till bultar i den mekaniska industrin...;requirements,tracking;2010-02-27 10:38:55;2010-02-27 10:39:00
+Good management kills good business;"It is the good management techniques that kill good businesses. - Clay Christensen
+
+His idea was that traditional good management values locks you into traditional thinking, making it very hard to change your business into new areas.";change,management,business;2010-02-27 10:41:24;2010-02-27 10:42:31
+Agile & Lean;"Agile and Lean are based in the same values but have different priorities. Lean is about removing as much of the waste as possible, leading to ""plan well to execute fast"". Agile is about being flexible to changes in environment. But to be flexible you need to know which dimensions are you going to be agile in. A stable foundation is important if you want to be flexible. In software development, any development actually, ""plan well to execute fast"" does not mean BDUF, because design and architecture, requirements etc. are not part of the plan, it is part of the execution.";agile,lean,flow;2010-05-27 06:55:21;2016-09-12 08:00:52
+How do you show that people are not resources?;;;2010-05-28 13:05:50;2010-05-28 13:05:50
+Read a passage and give it a name;"If you think you are done with the the refactoring, read a passage, a few lines, say 2-5, of it and try to give it a simple, descriptive name. If you can, break that method out. If not, you have some restructuring to do.
+
+Particularly this goes for the code within blocks, but if that is too many lines in itself, partition it into smaller passages and do this recursively.
+
+Options:
+1) reshuffle some of the lines, because the passage is doing multiple things intertvined, sometimes because of local optimization
+2a) copy the passage and delete some lines from one copy and some other lines from the other to make them do one single thing
+2b) possibly break out the two passages to two different methods
+2c) compare the two sections or methods (still no tool to do this from within Eclipse?) to see if their common structure can be broken out and parameterized
+";tdd,tdd-pamflet,what do these lines do;2010-05-29 06:06:35;2010-05-29 06:17:23
+Before your first test;"To do good TDD you need to think. There are three steps before writing your first test. Inspect the ""requirements"", story or whatever is the holder for the functionality. Ensure that it describes a functionality and not an implementation or software solution. See if it is possible to break it into smaller chunks of functionality. Talk to the users or whoever you think may have some input on this.
+
+Then, think about some design, or algorithm, or datastructure that might be a solution to the problem. Then think of another. And then another. This is to open up your mind to multiple ways to solve the same problem. It also makes it easier for you to let the tests lead you to the best solution instead of you making the tests drive the selected solution.
+
+This is important because we want the tests do describe expected behaviour or functionality, not implementation or design.
+
+Second, list a small number of test cases. This will only be your initial list, so you don't have to find them all. We will probably add many as we go. But you have to have enough so that you can see which one is the simplest possible case. Usually that means 4-8.
+
+Select the simplest one. Now you can start coding!";tdd,tdd-pamflet;2010-05-29 06:17:35;2010-05-29 06:31:27
+Untitled;	;;2010-05-29 06:31:29;2010-05-29 06:31:34
+Timmar är för precist;Timmar är för precist med avsedde på korrektheten i estimat.;estimation,planning,precision;2010-05-29 07:45:33;2010-05-29 07:45:38
+Travelling light;In spite of the apparent conflict in Lean and Agile, the connection is that the more waste you are carrying around, the harder it will be to navigate. Much of the waste in systems and software development are detailed plans and superflous structures of command and control and information flow.;agile,lean,waste;2010-05-29 07:48:03;2010-05-29 07:50:31
+Dimensions in TDD;"Every problem has a number of dimensions, although they might not be obvious from the start. When you do TDD and have your first origo-test, and want to add the next test, you will probably realize this. Or, it might take until you have worked on the problem for a while.
+
+Once you start to see these dimensions you can view your strategy towards a complete solution in terms of these dimensions. Every test may focus on one of the dimensions, and each of the dimensions tipically requires three data points, in addition to the origo. Typically, one, a couple and many.
+
+Your strategy might be to traverse each of these dimensions in order, or to jump around between them. But I find that imagining this n-dimensional problem space allows me to select test cases with better control than just hammering them out.";tdd,tdd-pamflet;2010-05-29 07:50:59;2010-05-29 08:13:43
+Informationsambitionstrappan;"- ingen information => ingen effekt
+- tryckt material, med frågor, med frågor och svar => förståelse
+- dialog om hur och varför, dialog om hur, varför och vart => engagemang";engagement,information,effect;2010-05-29 09:27:15;2010-05-29 09:27:21
+User Story Mapping;If you are able to do a good User Story Map then your structure of the functionality is well formed and can be used to prioritize and drive value-oriented development.;stories,architecture;2010-06-06 08:28:43;2010-06-06 08:30:25
+Cochande diskussionstekniker;"""Du har fel""
+Resonerande
+- Om det är så så skulle...
+- Det tror jag inte...
+- Jag håller inte med ...
+Exempel
+- Jag brukar ...
+- Ge exempel ...
+- Har du kollat ...
+Utforskande
+- Kan det vara så ...
+- Du har rätt men ...
+- Då förutsätter du att ...
+- Förklara!
+
+Som coach startar man i botten och arbetar sig uppåt. Då bygger man upp ett förtroende och pondus. Det är också kopplat till team-utveckling. När man har rak kommunikation kan man lättare ta ""du har fel"".";coaching;2010-09-02 08:21:22;2010-09-02 08:31:12
+Important to tests;"If it's not important for the test, it's important for it to *not* be in the test!
+	Gerard Meszaros";testing,tests;2010-10-20 07:52:49;2010-10-20 07:54:16
+Budgeting is not planning;Budgeting is not planning, and planning is not budgeting. Both are needed, but the budget is creating a framework within which we can work, develop and track our progress. If we use the same unit for budgeting and tracking it is easy to confuse the two. Use hours or dollars and deadlines in your budgeting, Story Points, Function Points or something else as your unit for tracking!;estimation,planning,budgeting;2010-10-20 16:04:29;2010-10-20 16:08:35
+"Avoid ""impossible to estimate"" phases at the end";The only way to increase precision in our plans is to remove all activities that are impossible to estimate from the end of the project, and instead include them in everything we do along the way.;estimation,quality,planning,precision;2010-10-22 07:39:23;2010-10-22 07:41:06
+Varför vill vi inte göra det som behövs?;"Göran och jag pratade om att man måste göra saker som ""gör ont"" för att det skall synas. Göran pekade på att vi (coacher?) ofta talar som om det fanns en fördefinierad modell för hur en organisation skall fungera för att maximera ""nyttan"" den gör. Jag fick försvaraklara mig och säga att vi kanske glömmer bort att prata om var den största skillnaden är, nämligen i ""lyckliga och produktiva"" medarbetare. Att det är kanske det viktigaste elementet, och vi kan bara nå det genom att individen i gruppen känner sig synlig, nyttig och uppskattad, och därmed vill bidra och utöka sitt ansvar, i stället för att krympa det.
+
+Sedan sa han att han insett vad det egentligen är som gör att vi som människor (eller utvecklare) inte gör saker som vi borde. Det är inte lathet, och egentligen inte heller det faktum att det är besvärligt eller tar tid. Och här börjar det ju bli väldigt intressant…
+
+Det som gör att vi undviker en del nyttiga saker är det faktum att vi hela tiden känner att det borde kunna gå fortare. Och vägrar att inse att det faktiskt inte går! Vi kanske kan förstå med frontalloberna att om vi inte skriver tester och testar så kommer detta tillbaka och biter oss, förr eller senare, så att över tid gick det inte alls så fort som det verkade där i ögonblicket av ""flow"". Men med hjärtat (eller var nu hoppet sitter) känner vi hela tiden att det borde kunna gå fortare, man kan ju nästan se det framför sig!
+
+Göran jämförde med aktiemarknaden. Om man köper en fond som ger +5% avkastning så känns det ju så där när marknaden i helhet går +40-50%! Tricket är ju bara att den lutningen gäller ju bara under en begränsad period. Om jag försöker slå dessa 5% genom egna aktieaffärer är det troligt att jag istället gör av med halva min förmögenhet!
+
+En egen modell som jag har är bilkörning. Om jag vet hur långt det är jag ska åka så kan jag ju räkna ut hur mycket tid det behövs. Och det finns inget sätt att öka hastigheten till det dubbla, och i bland måste jag stanna och tanka. Hastighetsmätaren visar exakt hur fort det går. Och ändå hoppas jag att jag skall kunna åka från Mjärdevi till Norrköping (centrum...) på en halvtimme. Om det var ledigt på motorvägen och jag hade en Lambo. Kanske. Om jag inte kör av vägen förstås. Eller får soppatorsk. Eller fastnar i en poliskontroll.
+
+När det gäller organisationernas uppfattning om hur fort det faktiskt kan gå så finns ju en del verktyg, burndowns, portfolio management etc. Denna visualisering kan användas till att visa den verkliga hastigheten, oavsett om det gäller utveckling av produkter eller av organisationen själv. Tricket är bara att hitta rätt mätning.
+
+Men när det gäller den personliga känslan, hoppet, om att det måste kunna gå fortare, så har jag inte hittat några sådana. Det närmaste är väl Pomodoro, som genom sin tydlighet, sina mätetal och enkla process kan visa dig din faktiska hastighet. Trodde du att du skull vara klar idag? Men du har bara gjort 2 pomodoros per dag i ett år nu, varför tror du att det skulle gå fortare nu?
+";people,improvement,pain;2011-01-28 13:49:13;2011-01-28 13:51:10
+Proficiencies of Planning;Levels of planning proficiency: http://jamesshore.com/Blog/Proficiencies-of-Planning.html;improvement,planning,flight of the team,maturity,team;2011-02-12 14:28:31;2011-02-12 14:29:02
+Project deliver probability;If you plot probability of completion towards dates you'd probably see a gradual curve, not a 0-100 step. So why does that not show in our plans? Or in our planning strategies?;planning,project,probability;2011-05-04 09:33:05;2011-05-04 09:35:22
+Enabling complete deliver is the driver for self-organizing;It is the fact that the team is enabled with the responsibility to deliver complete products/features that causes them to self-organize;deliver value,team,self-organizing;2011-05-09 07:41:08;2011-05-09 07:42:36
+Architecture is a service;Ensuring Conceptual Integrity: Architecture is a service => technical service team(s), customer is the feature teams;architecture,technical service team;2011-05-09 07:57:05;2011-05-09 07:57:38
+Hierarchy is a way to close the feedback loop;If we do planning in any hiearchical way we surely have a hierarchical feedback on building/delivering, but we often lack the closing of the feedback loop in the process dimension. Staged retrospectives is a way to do this.;retrospective,feedback,hierarchy,large scale,organization;2011-05-09 09:40:06;2011-05-09 09:42:30
+What do these lines do?;"Select a few lines, a small code block, the true part of an if statement. Ask your self the question ""What do these few lines do?""
+
+Sometimes there is a comment telling you what they do, sometimes you have to reorder the lines to be abel to bunch them together. But if you do that, then you can extract those few lines into a function or method with a name revealing the intent expressed by the answer to that question.
+
+And, voilá!, your function has shrunk by a few lines and become radically easier to understand.";tdd,tdd-pamflet,what do these lines do;2011-12-02 16:55:17;2011-12-02 16:58:48
+How do I know when a project will be finished;"If your customer or sales person want a plan, they are usually given a single date based on the single estimates and that becomes the comittment.
+
+What you could do is either
+
+a) decide on a date and give a range for probable feature completness (a range in your backlog)
+
+b) decide on a scope and give a range for the delivery date
+
+c) give a range in scope *and* date, then the customer/sales person will see that it is actually a balance and a trade of. Perhaps this will make them think that it is actually their job to figure the priorities betwen those
+
+And of course if you make a comitment against a single estimate you run a 50% risk of failure. Your comittment shoudl have a much higher probability than that!";planning,project,progress,probability;2011-12-08 14:05:19;2011-12-08 14:10:30
+Untitled;;;2011-12-08 14:10:29;2011-12-08 14:10:29
+Threesome for organizational balance;"Three balancing organizational roles:
+
+Engineering - Product - Process/Values
+
+This structure can be applied on all levels in an agile organization:
+
+Team: Devs, PO, SM
+";scrum master,product owner,organization;2012-06-13 09:19:34;2012-06-13 09:20:57
