@@ -19,10 +19,6 @@ Template.body.events({
     }
 });
 
-Template.body.loggedin = function() {
-    return Meteor.userId();
-} 
-
 function exportCSV() {
     const csv = convertSerializedNotesToCSV(serializeAllNotes());
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });

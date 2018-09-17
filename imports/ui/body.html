@@ -3,7 +3,7 @@
     <header class="col-xs-12">
       <h1>Welcome to NoteIt!</h1>
       <div style="float:right; padding-top:20px;">{{> loginButtons align="right"}}</div>
-      {{#if loggedin }}
+      {{#if currentUser }}
         <div style="float:right; padding:20px;"><div style="line-height: 1"><a href='#' id="exportCSVlink">Export as CSV</a></div></div>
         <div style="float:right; padding:20px;">
           <div style="line-height: 1">
@@ -14,19 +14,19 @@
     {{/if}} 
     </header>
 
-    {{#if loggedin }}
+    {{#if currentUser }}
       <div class="tag-filter col-xs-12">
         {{> tagselector}}
       </div>
     {{/if}}
     
-    {{#if loggedin }}
+    {{#if currentUser }}
       <div class="editor col-md-6 col-xs-12" style="padding-left:0;">
         {{> editor}}
       </div>
     {{/if}}
 
-    {{#if loggedin }}
+    {{#if currentUser }}
       <div class="notelist col-md-6 col-xs-12" style="padding:0;">
         {{> notelist}}
       </div>
