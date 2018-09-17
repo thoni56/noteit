@@ -21,7 +21,7 @@ function convertBackslashBackslashNToNewline(content) {
 function importNoteAndTags(title, content, tags) {
     createNote(title, content, (error, result) => {
         if (error) {
-            alert(error);
+            console.log(error);
         } else {
             if (tags) {
                 const tagNames = tags.split(",");
@@ -42,13 +42,12 @@ function addTagnameToNote(tagName, note) {
             if (err) {
                 alert(err);
             } else {
-                console.log("Create tag="+result);
                 addTagIdToNote(result, note);
             }
         });
     }
     else {
-        return tag._id;
+        addTagIdToNote(tag._id, note);
     }
 }
 
