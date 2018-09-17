@@ -1,7 +1,17 @@
 import { Meteor } from 'meteor/meteor';
-import '../imports/api/notes.js';
-import '../imports/api/tags.js';
+import { Notes } from '../imports/api/notes';
+import { Tags } from '../imports/api/tags';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+
+  Meteor.publish('Notes', function() {
+    let currentUser = this.userId;
+    return Notes.find({owner: currentUser});
+  });
+
+  Meteor.publish('Tags', function() {
+    let currentUser = this.userId;
+    return Tags.find({owner: currentUser});
+  });
 });
+
