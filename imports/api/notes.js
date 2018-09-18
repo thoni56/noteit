@@ -70,6 +70,17 @@ export function addTagIdToNote(tagId, noteId) {
     }
 }
 
+export function removeTagFromNote(tagId, noteId) {
+    const tagsArray = tagsForNote(noteId);
+    if (tagsArray.includes(tagId)) {
+        tagsArray.splice(tagsArray.indexOf(tagId), 1);
+        Meteor.call('note.update', noteId, {
+            $set: { tags: tagsArray }
+        });
+    }
+
+}
+
 export function createNote(title, content, callback) {
     Meteor.call('note.create', title, content, callback)
 }
