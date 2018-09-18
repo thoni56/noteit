@@ -20,12 +20,12 @@ Template.notelist.helpers({
 });
 
 const sortingMap = {
-    'titleup' : { title: 1 },
-    'titledown' : { title: -1},
-    'createdup' : { createdAt: 1 },
-    'createddown' :  { createdAt: -1 },
-    'modifiedup' : { modifiedAt: 1 },
-    'modifieddown' :  { modifiedAt: -1 },
+    'titleup' : { title: -1 },
+    'titledown' : { title: 1},
+    'createdup' : { createdAt: -1 },
+    'createddown' :  { createdAt: 1 },
+    'modifiedup' : { modifiedAt: -1 },
+    'modifieddown' :  { modifiedAt: 1 },
 };
 
 Template.notelist.events({
