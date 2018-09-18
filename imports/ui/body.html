@@ -11,22 +11,18 @@
             <input type="file" id="importFileName" style="opacity: 0.0; position: absolute; top:0; left: 0; bottom: 0; right:0; width: 0%; height:0%;" />
           </div>
         </div>
-    {{/if}} 
+      {{/if}} 
     </header>
 
     {{#if currentUser }}
       <div class="tag-filter col-xs-12">
         {{> tagselector}}
       </div>
-    {{/if}}
-    
-    {{#if currentUser }}
+
       <div class="editor col-md-6 col-xs-12" style="padding-left:0;">
         {{> editor}}
       </div>
-    {{/if}}
 
-    {{#if currentUser }}
       <div class="notelist col-md-6 col-xs-12" style="padding:0;">
         {{> notelist}}
       </div>
