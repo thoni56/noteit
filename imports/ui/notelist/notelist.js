@@ -4,11 +4,15 @@ import { getActiveTags } from '../tagselector/tagselector.js';
 
 import './notelist.html';
 
+export function currentSortingField() {
+    return sortingIdToField[sortId.get()];
+}
+
 var sortId = ReactiveVar('createdup');
  
 Template.notelist.helpers({
     notes() {
-        return notesWithTags(getActiveTags(), sortingIdToFieldMap[sortId.get()]);
+        return notesWithTags(getActiveTags(), sortingIdToQuery[sortId.get()]);
     },
     counter() {
         let message = "";
@@ -19,7 +23,16 @@ Template.notelist.helpers({
     }
 });
 
-const sortingIdToFieldMap = {
+const sortingIdToField = {
+    'titleup' : {field: undefined, type: undefined},
+    'titledown' : {field: undefined, type: undefined},
+    'createdup' : {field: 'createdAt', type: Date},
+    'createddown' : {field: 'createdAt', type: Date},
+    'modifiedup' : {field: 'modifiedAt', type: Date},
+    'modifieddown' : {field: 'modifiedAt', type: Date}
+};
+
+const sortingIdToQuery = {
     'titleup' : { title: -1 },
     'titledown' : { title: 1},
     'createdup' : { createdAt: -1 },

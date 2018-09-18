@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { load } from '../editor/editor.js';
+import { currentSortingField } from './notelist';
 
 import './note.html';
 
@@ -25,7 +26,15 @@ Template.note.helpers({
         }
     },
     sortValue() {
-        return "2018-01-01 12:34";
+        const { field, type } = currentSortingField();
+        if (field) {
+            if (type == Date) {
+                return formattedDate(this[field]);
+            } else {
+                return this[field];
+            }
+        } else
+            return "";
     }
 })
 Template.note.events({
@@ -34,3 +43,12 @@ Template.note.events({
         activeNote.set(this._id);
     }
 });
+
+function formattedDate(field) {
+    if (field) {
+        const d = new Date(Date.parse(field));
+        return d.toLocaleDateString() + " " + d.toLocaleTimeString();
+    } else {
+        return "-";
+    }
+}
