@@ -60,6 +60,17 @@ h1 {
   overflow-y:auto;
 }
 
+.notetag {
+  display: inline-block;
+  padding: 2px 5px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: #777;
+  border-radius: 10px;
+}
+
 header h4 {
   padding:10px;
 }

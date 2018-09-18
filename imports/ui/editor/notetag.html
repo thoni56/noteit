@@ -1,3 +1,7 @@
 <template name="notetag">
-    <div span class="badge">{{name}}</div>
+    <div span class="notetag">{{name}}
+        <div class="remove-tag" data-toggle="tooltip" data-animation="true" title="Remove tag from current note" style="float:right;margin-left:3px;">
+            <i class="fa fa-remove" style="color:red;"></i>
+        </div>
+    </div>
 </template>

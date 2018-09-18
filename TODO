@@ -14,7 +14,7 @@ Tagselector:
 
 Editor:
   ✔ Move + (create note) to Editor heading @done(18-07-24 21:16)
-  ☐ Remove tag from note
+ ✔ Remove tag from note @done(18-09-19 00:51)
   ☐ Ask for title if trying to save without (+ or switch to other)
 
 Notelist:

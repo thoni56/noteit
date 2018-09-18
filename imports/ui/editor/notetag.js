@@ -4,7 +4,7 @@ import { removeTagFromCurrentNote } from './editor';
 import './notetag.html';
 
 Template.notetag.events({
-    'click .badge'(event) {
+    'click .remove-tag'(event) {
         removeTagFromCurrentNote(this._id);
     }
 });
