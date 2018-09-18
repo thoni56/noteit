@@ -23,6 +23,9 @@ Template.note.helpers({
         } else {
             return "";
         }
+    },
+    sortValue() {
+        return "2018-01-01 12:34";
     }
 })
 Template.note.events({
