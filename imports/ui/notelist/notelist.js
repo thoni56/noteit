@@ -4,11 +4,11 @@ import { getActiveTags } from '../tagselector/tagselector.js';
 
 import './notelist.html';
 
-var sorting = ReactiveVar({ createdAt: -1 });
+var sortId = ReactiveVar('createdup');
  
 Template.notelist.helpers({
     notes() {
-        return notesWithTags(getActiveTags(), sorting.get());
+        return notesWithTags(getActiveTags(), sortingIdToFieldMap[sortId.get()]);
     },
     counter() {
         let message = "";
@@ -19,20 +19,20 @@ Template.notelist.helpers({
     }
 });
 
-const sortingMap = {
+const sortingIdToFieldMap = {
     'titleup' : { title: -1 },
     'titledown' : { title: 1},
     'createdup' : { createdAt: -1 },
     'createddown' :  { createdAt: 1 },
     'modifiedup' : { modifiedAt: -1 },
-    'modifieddown' :  { modifiedAt: 1 },
+    'modifieddown' :  { modifiedAt: 1 }
 };
 
 Template.notelist.events({
     'change #sortselector': function (event) {
         const currentTarget = event.currentTarget;
         const selectedSorting = currentTarget.options[currentTarget.selectedIndex].value;
-        sorting.set(sortingMap[selectedSorting]);
+        sortId.set(selectedSorting);
       }
 })
 
