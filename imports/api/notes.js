@@ -12,6 +12,16 @@ Meteor.methods({
         });
         return noteId;    
     },
+    'note.import'(title, content, created, modified) {
+        const noteId = Notes.insert({
+            owner: Meteor.userId(),
+            title: title,
+            content: content,
+            createdAt: created,
+            modifiedAt: modified
+        });
+        return noteId;    
+    },
     'note.delete'(noteId) {
         Notes.remove(noteId);
     },
@@ -62,6 +72,10 @@ export function addTagIdToNote(tagId, noteId) {
 
 export function createNote(title, content, callback) {
     Meteor.call('note.create', title, content, callback)
+}
+
+export function importNote(title, content, created, modified, callback) {
+    Meteor.call('note.import', title, content, created, modified, callback)
 }
 
 export function deleteNote(noteId) {

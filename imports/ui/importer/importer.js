@@ -1,4 +1,4 @@
-import { createNote, addTagIdToNote } from '../../api/notes';
+import { importNote, addTagIdToNote } from '../../api/notes';
 import { Tags, createTag } from '../../api/tags';
 import Papa from 'papaparse';
 
@@ -8,7 +8,7 @@ export function csvImporter(string) {
         if (results.data.length > 0) {
             results.data.forEach(element => {
                 const content = convertBackslashBackslashNToNewline(element.content);
-                importNoteAndTags(element.title, content, element.tags);
+                importNoteAndTags(element.title, content, element.tags, element.created, element.modified);
             });
         }
     }
@@ -18,8 +18,8 @@ function convertBackslashBackslashNToNewline(content) {
     return content ? content.replace(/\\\\n/g, "\n") : "";
 }
 
-function importNoteAndTags(title, content, tags) {
-    createNote(title, content, (error, result) => {
+function importNoteAndTags(title, content, tags, created, modified) {
+    importNote(title, content, created, modified, (error, result) => {
         if (error) {
             console.log(error);
         } else {
