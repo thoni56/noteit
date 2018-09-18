@@ -21,7 +21,7 @@ Notelist:
   ✔ Sort by createdDate ("-> Today", "Today ->", unsorted) @done(18-07-24 21:02)
   ✔ Sort by modifiedDate ("-> Today", "Today ->", unsorted) @done(18-07-24 21:02)
   ✔ Sort by title ("A ->", "-> A", unsorted) @started(18-07-24 18:08) @done(18-07-24 21:02) @lasted(2h54m30s)
-  ☐ Show dates for notes
+  ✔ Show dates for notes @done(18-09-18 22:17)
   ☐ Filter on range of dates
 
 Areas:
@@ -44,13 +44,14 @@ Administration:
     ☐ CSV @started(18-08-24 22:33)
       ✔ title @done(18-08-25 00:58)
       ✔ content @done(18-08-25 00:58)
-      ☐ tags @started(18-08-25 00:58)
+      ✔ tags @started(18-08-25 00:58) @done(18-09-18 22:17) @lasted(3w3d21h19m40s)
+      ✔ dates @done(18-09-18 22:18)
     ☐ Json
   ☐ User account
     ✔ Log in @started(18-07-29 12:19) @done(18-07-29 14:07) @lasted(1h48m21s)
     ✔ Create notes with owner identification @started(18-07-29 14:11) @done(18-08-17 20:30) @lasted(2w5d6h19m16s)
     ✔ Create tag with owner identification @done(18-08-17 20:30)
-    ☐ Only show users notes and tags
+    ✔ Only show users notes and tags @done(18-09-18 22:18)
   ☐ Guest account
     ☐ "Continue as guest" gives random user id
     ☐ Guest id saved in cookie
