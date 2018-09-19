@@ -74,39 +74,7 @@ Template.editor.events({
 
     'submit .edit-tags-form'(event) {
         event.preventDefault();
-        if (currentNoteId.get()) {
-            const tagname = tagsField.value.trim();
-            let tag = Tags.findOne({ name: tagname });
-            const tagform = event.target;
-            if (!tag) {
-                new Confirmation({
-                    message: "Do you want to create the new tag '" + tagname + "' ?",
-                    title: "Create new tag?",
-                    cancelText: "No",
-                    okText: "Yes",
-                    success: true,
-                    focus: "cancel"
-                }, function (ok) {
-                    if (ok) {
-                        createTag(tagname, (error, result) => {
-                            if (error) {
-                                new Meteor.Error(error);
-                            }
-                            else {
-                                tag = Tags.findOne({ name: tagname });
-                                addTagToNote(tag, currentNoteId.get());
-                                tags.set(tagsForNote(currentNoteId.get()));
-                                tagform.reset();
-                            }
-                        });
-                    }
-                });
-            } else {
-                addTagToNote(tag, currentNoteId.get());
-                tags.set(tagsForNote(currentNoteId.get()));
-                tagform.reset();
-            }
-        }
+        addTagToCurrentNote(event);
     },
 
     'click .add-note'(event) {
@@ -128,8 +96,50 @@ Template.editor.events({
         deleteNote(currentNoteId.get());
         resetEditor();
         setActive(undefined);
+    },
+    
+    'focusout #add-tag'(event) {
+        console.log('focusout add-tag');
+        addTagToCurrentNote(event);
     }
 });
+
+function addTagToCurrentNote(event) {
+    if (currentNoteId.get()) {
+        const tagname = tagsField.value.trim();
+        let tag = Tags.findOne({ name: tagname });
+        const tagform = event.target;
+        if (!tag) {
+            new Confirmation({
+                message: "Do you want to create the new tag '" + tagname + "' ?",
+                title: "Create new tag?",
+                cancelText: "No",
+                okText: "Yes",
+                success: true,
+                focus: "cancel"
+            }, function (ok) {
+                if (ok) {
+                    createTag(tagname, (error, result) => {
+                        if (error) {
+                            new Meteor.Error(error);
+                        }
+                        else {
+                            tag = Tags.findOne({ name: tagname });
+                            addTagToNote(tag, currentNoteId.get());
+                            tags.set(tagsForNote(currentNoteId.get()));
+                            tagform.reset();
+                        }
+                    });
+                }
+            });
+        }
+        else {
+            addTagToNote(tag, currentNoteId.get());
+            tags.set(tagsForNote(currentNoteId.get()));
+            tagform.reset();
+        }
+    }
+}
 
 function editingExistingNote() {
     return currentNoteId.get() && getNote(currentNoteId.get());
