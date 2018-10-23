@@ -10,7 +10,7 @@
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.54",
+    "@babel/runtime": "^7.1.2",
     "@types/simplemde": "^1.11.7",
     "babel-runtime": "^6.26.0",
     "bcrypt": "^3.0.0",
